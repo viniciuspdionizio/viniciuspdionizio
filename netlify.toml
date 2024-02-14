@@ -1,0 +1,4 @@
+[build]
+  base = "viniciuspdionizio"
+  publish = "dist"
+  command = "ng build --prod"
