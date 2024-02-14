@@ -1,8 +1,9 @@
 [build]
   base = "dist/viniciuspdionizio"
   command = "ng build --prod"
+  publish = "dist/viniciuspdionizio"
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/"
   status = 200
