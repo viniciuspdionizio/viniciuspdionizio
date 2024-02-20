@@ -1,23 +1,32 @@
-<header>
-  <nav class="flex flex-row justify-between" *ngIf="false">
-    <ul class="flex flex-row justify-stretch">
-      <li><a routerLink="">Home</a></li>
-      <li><a routerLink="about">About me</a></li>
-      <li><a routerLink="contact">Contact</a></li>
-    </ul>
-    <button lupumButton color="secondary" (click)="onClick($event)">Contact</button>
-  </nav>
-</header>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #snav [opened]="!mobile || opened" [mode]="mobile ? 'over' : 'side'" (closed)="opened = false"
+    position="end">
+    <mat-toolbar class="title">
+      <h1>Vinicius de Paiva Dionizio</h1>
+    </mat-toolbar>
+    <nav class="menu-list">
+      <mat-selection-list>
+        <a mat-list-item routerLink="/" (click)="mobile && snav.close()">Home</a>
+        <a mat-list-item routerLink="/about" (click)="mobile && snav.close()">About</a>
+      </mat-selection-list>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="app-header" *ngIf="mobile">
+      <button mat-icon-button (click)="opened = !opened"><mat-icon
+          class="material-symbols-rounded">menu</mat-icon></button>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
 
-<main>
-  <section class="flex flex-col">
-    <h2>Not yet implemented!</h2>
+    <footer class="d-flex mt-1 mt-md-5">
+      <section class="d-flex flex-column justify-content-center align-items-center">
+        <a mat-button routerLink="/about">
+          About me
+        </a>
+      </section>
 
-
-    <article>I'm learning about tailwind css to create my profile page</article>
-  </section>
-</main>
-
-
-<footer>
-</footer>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

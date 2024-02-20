@@ -1,0 +1,56 @@
+<section id="container">
+  <div class="row p-0 m-0">
+    <div class="col-12 col-md-12 d-flex flex-column justify-content-center align-items-center">
+      <p>Vinicius de Paiva Dionizio</p>
+      <a mat-button href="https://wa.me/+5518997169891" target="_blank">
+        <i class="bi bi-whatsapp"></i> +55 (18) 99716-9891
+      </a>
+      <p>Assis, São Paulo, Brasil</p>
+      Social:
+      <div class="social d-flex flex-row flex-wrap justify-content-center align-items-center">
+        <a mat-button href="https://linkedin.com/in/viniciuspdionizio" target="_blank">
+          <i class="bi bi-linkedin"></i> LinkedIn
+        </a>
+        <a mat-button href="https://github.com/viniciuspdionizio" target="_blank">
+          <i class="bi bi-github"></i> GitHub
+        </a>
+        <div class="d-sm-block w-100"></div>
+        <a mat-button href="https://facebook.com/viniciuspdionizio" target="_blank">
+          <i class="bi bi-facebook"></i> Facebook
+        </a>
+        <a mat-button href="https://instagram.com/viniciuspdionizio" target="_blank">
+          <i class="bi bi-instagram"></i> Instagram
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-7" *ngIf="false"> <!-- Future Implementation -->
+      <div class="col-12 col-md-10 col-xl-6 justify-content-md-center">
+        <form [formGroup]="form" (submit)="send($event)">
+          Or contact by form:
+          <mat-form-field class="col-12">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" autocomplete="name">
+            <mat-error *ngIf="form.controls.name.hasError('required')">Name is required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>E-mail</mat-label>
+            <input matInput formControlName="email" autocomplete="email">
+            <mat-error *ngIf="form.controls.email.hasError('required')">E-mail is required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" autocomplete="phone">
+          </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>Message</mat-label>
+            <textarea matInput formControlName="message" rows="6"></textarea>
+            <mat-error *ngIf="form.controls.message.hasError('required')">Message is required</mat-error>
+          </mat-form-field>
+          <button mat-stroked-button class="col-12" [disabled]="form.invalid">Send</button>
+
+          <span #submitResult></span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
