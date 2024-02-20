@@ -1,0 +1,20 @@
+@use '@angular/material' as mat
+@use '@angular/material-experimental' as matx
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Kode+Mono:wght@400..700&display=swap')
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
+
+$m3-dark-theme: matx.define-theme((color: (theme-type: dark, primary: matx.$m3-blue-palette, tertiary: matx.$m3-green-palette), typography: (plain-family: 'Roboto')))
+
+$m3-light-theme: matx.define-theme((color: (primary: matx.$m3-blue-palette, tertiary: matx.$m3-green-palette, theme-type: 'light')))
+
+$handwrite-typography: mat.define-typography-config($font-family: 'Dancing Script')
+$main-typography: mat.define-typography-config($font-family: 'Kode Mono')
+
+*
+    --mat-app-background-color: #08030a
+    --mdc-elevated-card-container-color: var(--mat-app-background-color)
+    --mat-sidenav-content-background-color: var(--mat-app-background-color)
+    --mat-stepper-header-selected-state-icon-background-color: var(--mat-app-background-color)
+    --mat-sidenav-container-background-color: var(--mat-app-background-color)
+    --mat-toolbar-container-background-color: var(--mat-app-background-color)

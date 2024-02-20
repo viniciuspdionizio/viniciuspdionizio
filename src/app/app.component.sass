@@ -1,0 +1,25 @@
+
+*
+    --footer-height: 200px
+
+.sidenav-container
+    height: 100%
+
+    main
+        height: calc(100% - var(--footer-height))
+        overflow: auto
+        background: #0c050fbe
+        background: linear-gradient(300deg, #0c050fbe 38%, #30005dbf 100%)
+
+    footer
+        position: relative
+        display: flex
+        justify-content: center
+        background-color: var(--mat-sidenav-content-background-color)
+
+.menu-list
+    margin-top: 100px
+
+@media screen and ( max-width: 480px )
+    *
+        --footer-height: 150px

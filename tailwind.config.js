@@ -9,7 +9,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.red,
+        'background': colors.blue['900'],
+        'foreground': '#ddd',
+        'primary': colors.indigo['600'],
+        'primary-hover': colors.indigo['400'],
       },
     },
   },

@@ -1,0 +1,35 @@
+
+:root, html, body
+    margin: 0
+    padding: 0
+    height: 100%
+    scroll-behavior: smooth
+
+li
+    list-style: none
+
+@media screen and (min-device-width: 480px)
+
+    /* width */
+    ::-webkit-scrollbar
+        width: 10px
+        scrollbar-gutter: stable
+
+        width: 10px
+
+        &-track
+            background: #ffffff10
+            border-radius: 3px
+
+        &-thumb
+            background: #8a8a8a
+            border-radius: 3px
+
+    *:hover::-webkit-scrollbar
+        width: 10px
+
+        &-track
+            background: #ffffff10
+
+        &-thumb
+            background: #6b6b6b
