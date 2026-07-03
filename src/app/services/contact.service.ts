@@ -6,13 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class ContactService {
 
+  private readonly apiUrl = '/.netlify/functions/send-email';
+
   constructor(private http: HttpClient) { }
 
-
   sendEmail(data: { name: string, email: string, phone?: string, message: string }) {
-    this.http.post('', data);
+    return this.http.post(this.apiUrl, { body: data });
   }
-
-
 
 }

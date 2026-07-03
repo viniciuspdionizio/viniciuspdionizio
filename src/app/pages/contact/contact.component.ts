@@ -1,43 +1,59 @@
-import { NgIf } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-
+import { CommonModule } from '@angular/common';
+import { Component, inject, signal } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { finalize } from 'rxjs';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [
-    NgIf,
+    CommonModule,
     ReactiveFormsModule,
-    MatExpansionModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.sass'
 })
 export default class ContactComponent {
-  form = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required]),
-    phone: new FormControl(''),
-    message: new FormControl('', [Validators.required]),
+  private contactService = inject(ContactService);
+  private fb = inject(FormBuilder);
+
+
+  form = this.fb.nonNullable.group({
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
+    phone: ['', []],
+    message: ['', [Validators.required, Validators.minLength(10)]],
   });
 
-  @ViewChild('submitResult') submitResult: HTMLElement;
+  isSubmitting = signal(false);
+  submitSuccess = signal(false);
 
-  ngOnInit(): void {
+  socials = [
+    { name: 'LinkedIn', icon: 'bi bi-linkedin', url: 'https://linkedin.com/in/viniciuspdionizio', color: 'hover:text-[#0a66c2] hover:border-[#0a66c2]/40' },
+    { name: 'GitHub', icon: 'bi bi-github', url: 'https://github.com/viniciuspdionizio', color: 'hover:text-[#f0f6fc] hover:border-[#f0f6fc]/40' },
+    { name: 'WhatsApp', icon: 'bi bi-whatsapp', url: 'https://wa.me/+5518997169891', color: 'hover:text-[#25d366] hover:border-[#25d366]/40' },
+    { name: 'Instagram', icon: 'bi bi-instagram', url: 'https://instagram.com/viniciuspdionizio', color: 'hover:text-[#e1306c] hover:border-[#e1306c]/40' }
+  ];
+
+  send() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    this.isSubmitting.set(true);
+    this.submitSuccess.set(false);
+
+    this.contactService.sendEmail(this.form.getRawValue())
+      .pipe(finalize(() => {
+        this.form.reset();
+        this.isSubmitting.set(false);
+      }))
+      .subscribe({
+        next: () => this.submitSuccess.set(true),
+        error: () => this.submitSuccess.set(false),
+      });
+
   }
-
-
-  send(event: any) {
-    console.log(event.form);
-
-  }
-
 }

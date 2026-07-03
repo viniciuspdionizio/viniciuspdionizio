@@ -1,0 +1,45 @@
+<div class="relative border-l border-dark-border/80 ml-4 md:ml-32 space-y-12 py-4">
+  @for (item of items; track item.role + item.period; let i = $index) {
+    <div class="relative pl-8 group">
+      <!-- Indicador Circular no Trilho (Timeline Dot) -->
+      <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-dark-card border-2 flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-lg"
+           [ngClass]="{
+             'border-primary text-primary group-hover:bg-primary/10': item.type === 'work',
+             'border-accent text-accent group-hover:bg-accent/10': item.type === 'education',
+             'border-amber-500 text-amber-500 group-hover:bg-amber-500/10': item.type === 'sports'
+           }">
+        @if (item.type === 'work') {
+          <i class="bi bi-briefcase text-sm"></i>
+        } @else if (item.type === 'education') {
+          <i class="bi bi-mortarboard text-sm"></i>
+        } @else if (item.type === 'sports') {
+          <i class="bi bi-trophy text-sm"></i>
+        }
+      </div>
+
+      <!-- Informações à esquerda em telas médias/grandes -->
+      <div class="hidden md:block absolute -left-32 top-2 w-24 text-right">
+        <span class="text-xs font-mono text-muted">{{ item.period }}</span>
+      </div>
+
+      <!-- Detalhes do Card -->
+      <div class="bg-dark-card border border-dark-border/40 rounded-xl p-6 hover:border-primary/20 transition-all duration-300 shadow-md">
+        <!-- Período para Mobile (Escondido em telas maiores) -->
+        <span class="inline-block md:hidden text-xs font-mono text-muted mb-2">{{ item.period }}</span>
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
+          <h4 class="text-base font-semibold font-outfit text-foreground group-hover:text-primary transition-colors">
+            {{ item.role }}
+          </h4>
+          <span class="text-xs font-medium text-muted bg-dark-bg/60 border border-dark-border px-2 py-0.5 rounded w-fit">
+            {{ item.company }}
+          </span>
+        </div>
+        
+        <p class="text-sm text-muted mt-3 leading-relaxed">
+          {{ item.description }}
+        </p>
+      </div>
+    </div>
+  }
+</div>

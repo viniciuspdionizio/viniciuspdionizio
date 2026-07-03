@@ -1,0 +1,59 @@
+<div class="bg-dark-card border border-dark-border/40 rounded-xl overflow-hidden shadow-xl hover:shadow-primary/5 hover:border-primary/30 transition-all duration-300 flex flex-col h-full hover:-translate-y-1.5 group">
+  <!-- Imagem/Header do Projeto -->
+  <div class="relative aspect-video w-full overflow-hidden bg-dark-bg/60 border-b border-dark-border/20 flex items-center justify-center">
+    @if (project.image) {
+      <img [src]="project.image" [alt]="project.title" 
+           class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+    } @else {
+      <!-- Placeholder estilizado com gradiente se não houver imagem -->
+      <div class="w-full h-full bg-gradient-to-br from-primary/10 to-accent/5 flex flex-col items-center justify-center p-6 text-center">
+        <i class="bi bi-code-slash text-4xl text-primary/60 group-hover:scale-110 transition-transform duration-300"></i>
+        <span class="text-xs font-mono text-muted mt-2">{{ project.tags[0] || 'Web Development' }}</span>
+      </div>
+    }
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="p-6 flex flex-col flex-grow">
+    <!-- Título -->
+    <h4 class="text-lg font-semibold font-outfit text-foreground group-hover:text-primary transition-colors">
+      {{ project.title }}
+    </h4>
+    
+    <!-- Descrição -->
+    <p class="text-sm text-muted mt-2.5 flex-grow line-clamp-3">
+      {{ project.description }}
+    </p>
+
+    <!-- Tecnologias (Tags) -->
+    <div class="flex flex-wrap gap-2 mt-5">
+      @for (tag of project.tags; track tag) {
+        <span class="text-[11px] font-mono bg-dark-bg border border-dark-border text-foreground/80 px-2 py-0.5 rounded">
+          {{ tag }}
+        </span>
+      }
+    </div>
+
+    <!-- Divisor -->
+    <div class="border-t border-dark-border/30 my-4"></div>
+
+    <!-- Ações -->
+    <div class="flex items-center justify-between mt-auto">
+      @if (project.githubUrl) {
+        <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-1.5 text-xs text-muted hover:text-primary transition-colors">
+          <i class="bi bi-github text-sm"></i> Código Fonte
+        </a>
+      } @else {
+        <div></div>
+      }
+
+      @if (project.liveUrl) {
+        <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary-hover hover:underline transition-colors">
+          Demo Online <i class="bi bi-arrow-up-right text-[10px]"></i>
+        </a>
+      }
+    </div>
+  </div>
+</div>
