@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -11,7 +11,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 export default class AboutComponent {
   stats = [
     { label: 'Foco de Atleta', detail: 'Foco, Disciplina e Resiliência' },
-    { label: 'Stack Principal', detail: 'Angular, TS, Tailwind' },
+    { label: 'Stack Principal', detail: 'Java, Spring Boot, Angular, TypeScript' },
     { label: 'Resolução', detail: 'Calma sob pressão' }
   ];
 }

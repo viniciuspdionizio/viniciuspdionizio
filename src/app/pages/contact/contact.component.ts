@@ -52,7 +52,10 @@ export default class ContactComponent {
       }))
       .subscribe({
         next: () => this.submitSuccess.set(true),
-        error: () => this.submitSuccess.set(false),
+        error: () => {
+          this.submitSuccess.set(false);
+        }
+
       });
 
   }

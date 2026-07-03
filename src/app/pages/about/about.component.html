@@ -1,6 +1,6 @@
 <section id="about" class="py-20 md:py-28 border-b border-dark-border/30">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
+
     <!-- Título da Seção -->
     <div class="text-center md:text-left mb-12 md:mb-16">
       <span class="text-xs font-mono text-primary uppercase tracking-widest">Minha Jornada</span>
@@ -10,26 +10,30 @@
 
     <!-- Layout Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      
+
       <!-- Imagem e Stats (Esquerda) -->
       <div class="lg:col-span-5 flex flex-col items-center">
-        <div class="relative group w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl border border-dark-border/40 p-2 bg-dark-card">
+        <div
+          class="relative group w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl border border-dark-border/40 p-2 bg-dark-card">
           <!-- Borda com efeito de gradiente brilhante -->
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl opacity-40 group-hover:opacity-100 transition duration-500 blur-sm"></div>
-          
+          <div
+            class="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl opacity-40 group-hover:opacity-100 transition duration-500 blur-sm">
+          </div>
+
           <!-- Imagem Interna -->
           <div class="relative w-full h-full rounded-xl overflow-hidden bg-dark-bg">
-            <img ngSrc="assets/vinicius.jpeg" alt="Vinicius de Paiva Dionizio" fill class="object-cover group-hover:scale-105 transition-transform duration-500" priority>
+            <img ngSrc="assets/vinicius.jpeg" alt="Vinicius de Paiva Dionizio" fill
+              class="object-cover group-hover:scale-105 transition-transform duration-500" priority>
           </div>
         </div>
 
         <!-- Estatísticas Rápidas -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 w-full max-w-lg lg:max-w-none">
           @for (stat of stats; track stat.label) {
-            <div class="bg-dark-card border border-dark-border/40 rounded-xl p-4 text-center">
-              <p class="text-xs text-primary font-bold font-outfit uppercase tracking-wide">{{ stat.label }}</p>
-              <p class="text-xs text-muted mt-1 font-sans">{{ stat.detail }}</p>
-            </div>
+          <div class="bg-dark-card border border-dark-border/40 rounded-xl p-4 text-center">
+            <p class="text-xs text-primary font-bold font-outfit uppercase tracking-wide">{{ stat.label }}</p>
+            <p class="text-xs text-muted mt-1 font-sans">{{ stat.detail }}</p>
+          </div>
           }
         </div>
       </div>
@@ -39,21 +43,31 @@
         <h3 class="text-xl md:text-2xl font-semibold font-outfit text-foreground">
           Unindo a mente analítica da tecnologia com a disciplina dos tatames.
         </h3>
-        
+
         <p class="text-sm md:text-base">
-          Olá! Sou o <strong class="text-foreground">Vinicius de Paiva Dionizio</strong>, desenvolvedor front-end focado em criar experiências digitais modernas, fluidas e robustas. No mundo dos códigos e sistemas, busco constantemente as melhores práticas de arquitetura de software, novas linguagens e a evolução contínua das stacks que domino.
+          Olá! Sou o <strong class="text-foreground">Vinicius de Paiva Dionizio</strong>, desenvolvedor focado em criar
+          experiências digitais modernas, fluidas e robustas. No mundo dos códigos e sistemas, busco constantemente as
+          melhores práticas de arquitetura de software, novas linguagens e a evolução contínua das stacks que domino.
         </p>
 
         <p class="text-sm md:text-base">
-          Fora das telas, sou conhecido no mundo dos combates como <strong class="text-foreground">Vinicius Dionizio</strong>. Minha trajetória no kickboxing, competindo em diversos eventos importantes da modalidade, me ensinou valores que carrego diretamente para o meu dia a dia como engenheiro de software.
+          Fora das telas, sou conhecido no mundo dos combates como <strong class="text-foreground">Vinicius
+            Dionizio</strong>. Minha trajetória no kickboxing, competindo em diversos eventos importantes da modalidade,
+          me ensinou valores que carrego diretamente para o meu dia a dia como engenheiro de software.
         </p>
 
         <p class="text-sm md:text-base">
-          A <strong class="text-primary">disciplina</strong> e o <strong class="text-primary">foco</strong> extremos exigidos nos treinos intensivos se convertem na minha persistência para debugar cenários complexos e otimizar códigos até o seu melhor rendimento. Além disso, a habilidade de <strong class="text-accent">manter a calma sob pressão</strong> — vital durante um combate — me permite encarar desafios técnicos, prazos rigorosos e incidentes críticos com total serenidade, mantendo sempre o foco claro na solução.
+          A <strong class="text-primary">disciplina</strong> e o <strong class="text-primary">foco</strong> extremos
+          exigidos nos treinos intensivos se convertem na minha persistência para debugar cenários complexos e otimizar
+          códigos até o seu melhor rendimento. Além disso, a habilidade de <strong class="text-accent">manter a calma
+            sob pressão</strong> — vital durante um combate — me permite encarar desafios técnicos, prazos rigorosos e
+          incidentes críticos com total serenidade, mantendo sempre o foco claro na solução.
         </p>
-        
+
         <p class="text-sm md:text-base">
-          Acredito que o desenvolvimento de alto nível não se trata apenas de escrever linhas de código, mas sim de entregar soluções eficientes e bem desenhadas, mantendo a perseverança diante dos desafios. Estou sempre aberto a novos aprendizados e parcerias para construir o futuro da tecnologia.
+          Acredito que o desenvolvimento de alto nível não se trata apenas de escrever linhas de código, mas sim de
+          entregar soluções eficientes e bem desenhadas, mantendo a perseverança diante dos desafios. Estou sempre
+          aberto a novos aprendizados e parcerias para construir o futuro da tecnologia.
         </p>
       </div>
 
