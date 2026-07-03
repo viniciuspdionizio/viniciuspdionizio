@@ -13,7 +13,7 @@ export const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      body: 'Method not allowed'
+      body: 'Method not allowed',
     };
   }
 
@@ -33,20 +33,20 @@ export const handler: Handler = async (event) => {
         <p><strong>E-mail:</strong> ${email}</p>
 
         <p><strong>Mensagem:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `
+        <p>${(message ?? '').replace(/\n/g, '<br>')}</p>
+      `,
     });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true })
+      body: JSON.stringify({ success: true }),
     };
   } catch (error) {
     console.error('Resend Error: ', error);
 
     return {
       statusCode: 500,
-      body: JSON.stringify({ error })
+      body: JSON.stringify({ error }),
     };
   }
 };
