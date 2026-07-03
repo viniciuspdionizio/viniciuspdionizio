@@ -13,11 +13,10 @@ export interface SkillCategory {
 }
 
 @Component({
-  selector: 'app-skills-grid',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './skills-grid.component.html',
-  styleUrl: './skills-grid.component.sass'
+    selector: 'app-skills-grid',
+    imports: [CommonModule],
+    templateUrl: './skills-grid.component.html',
+    styleUrl: './skills-grid.component.sass'
 })
 export class SkillsGridComponent {
   @Input({ required: true }) categories: SkillCategory[] = [];

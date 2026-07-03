@@ -10,11 +10,10 @@ export interface TimelineItem {
 }
 
 @Component({
-  selector: 'app-timeline',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './timeline.component.html',
-  styleUrl: './timeline.component.sass'
+    selector: 'app-timeline',
+    imports: [CommonModule],
+    templateUrl: './timeline.component.html',
+    styleUrl: './timeline.component.sass'
 })
 export class TimelineComponent {
   @Input({ required: true }) items: TimelineItem[] = [];
