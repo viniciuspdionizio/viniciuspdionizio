@@ -1,22 +1,26 @@
 import { CommonModule } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { toast } from 'ngx-sonner';
 import { finalize } from 'rxjs';
+import { socials } from '../../components/utils/socials';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
-    selector: 'app-contact',
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-    ],
-    templateUrl: './contact.component.html',
-    styleUrl: './contact.component.sass'
+  selector: 'app-contact',
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+  ],
+  templateUrl: './contact.component.html',
+  styleUrl: './contact.component.sass'
 })
 export default class ContactComponent {
   private contactService = inject(ContactService);
   private fb = inject(FormBuilder);
 
+  socials = socials;
 
   form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
@@ -27,13 +31,6 @@ export default class ContactComponent {
 
   isSubmitting = signal(false);
   submitSuccess = signal(false);
-
-  socials = [
-    { name: 'LinkedIn', icon: 'bi bi-linkedin', url: 'https://linkedin.com/in/viniciuspdionizio', color: 'hover:text-[#0a66c2] hover:border-[#0a66c2]/40' },
-    { name: 'GitHub', icon: 'bi bi-github', url: 'https://github.com/viniciuspdionizio', color: 'hover:text-[#f0f6fc] hover:border-[#f0f6fc]/40' },
-    { name: 'WhatsApp', icon: 'bi bi-whatsapp', url: 'https://wa.me/+5518997169891', color: 'hover:text-[#25d366] hover:border-[#25d366]/40' },
-    { name: 'Instagram', icon: 'bi bi-instagram', url: 'https://instagram.com/viniciuspdionizio', color: 'hover:text-[#e1306c] hover:border-[#e1306c]/40' }
-  ];
 
   send() {
     if (this.form.invalid) {
@@ -46,13 +43,26 @@ export default class ContactComponent {
 
     this.contactService.sendEmail(this.form.getRawValue())
       .pipe(finalize(() => {
-        this.form.reset();
         this.isSubmitting.set(false);
       }))
       .subscribe({
-        next: () => this.submitSuccess.set(true),
-        error: () => {
+        next: () => {
+          toast.success('Email enviado com sucesso');
+          this.submitSuccess.set(true);
+          this.form.reset();
+        },
+        error: error => {
+          console.error('Erro ao enviar email', { error });
           this.submitSuccess.set(false);
+          if (error instanceof HttpErrorResponse) {
+            toast.error('Erro ao enviar e-mail', { description: error.error?.error || 'Erro interno do servidor' });
+          } else {
+            toast.error('Erro ao enviar e-mail', { description: 'Erro interno do servidor' });
+          }
+          const subject = encodeURIComponent('Contato');
+          const body = encodeURIComponent(`Nome: ${this.form.get('name')?.value || ''}\nEmail: ${this.form.get('email')?.value || ''}\nTelefone: ${this.form.get('phone')?.value || ''}\nMensagem: ${this.form.get('message')?.value || ''}`);
+          const mailtoUrl = `mailto:viniciuspdionizio@gmail.com?subject=${subject}&body=${body}`;
+          window.open(mailtoUrl, '_blank', 'noopener,noreferrer');
         }
 
       });

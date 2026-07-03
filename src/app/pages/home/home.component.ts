@@ -1,110 +1,84 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../../components/header/header.component';
+import { Component } from '@angular/core';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { Project, ProjectCardComponent } from '../../components/project-card/project-card.component';
-import { TimelineComponent, TimelineItem } from '../../components/timeline/timeline.component';
+import { HeaderComponent } from '../../components/header/header.component';
 import { SkillCategory, SkillsGridComponent } from '../../components/skills-grid/skills-grid.component';
+import { TimelineComponent, TimelineItem } from '../../components/timeline/timeline.component';
 import AboutComponent from '../about/about.component';
 import ContactComponent from '../contact/contact.component';
 
 @Component({
-    selector: 'app-home',
-    imports: [
-        CommonModule,
-        HeaderComponent,
-        FooterComponent,
-        ProjectCardComponent,
-        TimelineComponent,
-        SkillsGridComponent,
-        AboutComponent,
-        ContactComponent
-    ],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.sass'
+  selector: 'app-home',
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    FooterComponent,
+    TimelineComponent,
+    SkillsGridComponent,
+    AboutComponent,
+    ContactComponent
+  ],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.sass'
 })
 export default class HomeComponent {
   skillsCategories: SkillCategory[] = [
     {
       title: 'Front-End',
       skills: [
-        { name: 'Angular', icon: 'bi bi-code-slash', level: 'Avançado' },
-        { name: 'TypeScript', icon: 'bi bi-filetype-tsx', level: 'Avançado' },
-        { name: 'Tailwind CSS', icon: 'bi bi-palette', level: 'Avançado' },
-        { name: 'HTML5 & CSS3', icon: 'bi bi-filetype-css', level: 'Avançado' }
+        { name: 'Angular', icon: 'bi bi-code-slash', level: 'Intermediário' },
+        { name: 'TypeScript', icon: 'bi bi-filetype-tsx', level: 'Intermediário' },
+        { name: 'Tailwind CSS', icon: 'bi bi-palette', level: 'Básico' },
+        { name: 'HTML5 & CSS3', icon: 'bi bi-filetype-css', level: 'Intermediário' }
       ]
     },
     {
       title: 'Back-End & APIs',
       skills: [
-        { name: 'Node.js', icon: 'bi bi-terminal', level: 'Intermediário' },
-        { name: 'Express', icon: 'bi bi-server', level: 'Intermediário' },
-        { name: 'REST APIs', icon: 'bi bi-braces', level: 'Avançado' },
-        { name: 'SQL / Databases', icon: 'bi bi-database', level: 'Básico' }
+        { name: 'Java', icon: 'bi bi-filetype-java', level: 'Intermediário' },
+        { name: 'Spring Boot', icon: 'bi bi-filetype-java', level: 'Intermediário' },
+        { name: 'REST APIs', icon: 'bi bi-braces', level: 'Intermediário' },
+        { name: 'SQL / Databases', icon: 'bi bi-database', level: 'Intermediário' }
       ]
     },
     {
       title: 'Ferramentas & Métodos',
       skills: [
-        { name: 'Git & GitHub', icon: 'bi bi-git', level: 'Avançado' },
+        { name: 'Git & GitHub', icon: 'bi bi-git', level: 'Intermediário' },
         { name: 'Docker', icon: 'bi bi-box', level: 'Básico' },
-        { name: 'Metodologias Ágeis', icon: 'bi bi-kanban', level: 'Intermediário' },
-        { name: 'UI / UX Design', icon: 'bi bi-vector-pen', level: 'Intermediário' }
+        { name: 'Metodologias Ágeis', icon: 'bi bi-kanban', level: 'Básico' },
+        { name: 'UI / UX Design', icon: 'bi bi-vector-pen', level: 'Básico' }
       ]
-    }
-  ];
-
-  projects: Project[] = [
-    {
-      title: 'Lupum Task Manager',
-      description: 'Gerenciador de tarefas corporativo projetado para equipes de alta performance. Conta com quadro Kanban interativo, métricas de produtividade semanais e interface ultra moderna.',
-      tags: ['Angular', 'TypeScript', 'Tailwind CSS', 'RxJS'],
-      githubUrl: 'https://github.com/viniciuspdionizio',
-      liveUrl: 'https://github.com/viniciuspdionizio'
-    },
-    {
-      title: 'Combat Analytics',
-      description: 'Plataforma de estatísticas voltada para atletas de kickboxing. Permite registrar dados de lutas, analisar a eficiência dos golpes aplicados e acompanhar o volume de treinamento físico.',
-      tags: ['Angular', 'Chart.js', 'Express', 'Node.js'],
-      githubUrl: 'https://github.com/viniciuspdionizio',
-      liveUrl: 'https://github.com/viniciuspdionizio'
-    },
-    {
-      title: 'Dev Portfolio V2',
-      description: 'Refatoração completa do portfólio pessoal focada em desempenho e design moderno. Conta com layout responsivo mobile-first, efeito de glassmorphism e animações fluidas.',
-      tags: ['Angular 17', 'Tailwind CSS', 'Sass', 'SSR'],
-      githubUrl: 'https://github.com/viniciuspdionizio',
-      liveUrl: 'https://github.com/viniciuspdionizio'
     }
   ];
 
   timelineItems: TimelineItem[] = [
     {
-      role: 'Desenvolvedor Front-End',
-      company: 'Lupum',
+      role: 'Desenvolvedor',
+      company: 'Peti9',
       period: '2024 - Presente',
-      description: 'Desenvolvimento e refatoração de aplicações web complexas usando Angular, TypeScript e Tailwind CSS. Foco na criação de componentes reaproveitáveis de alta performance, melhoria de UX/UI e integração com APIs robustas.',
+      description: 'Desenvolvimento e evolução do sistema PETI9, uma plataforma de gestão para o segmento pet. Atuação full-stack com Angular no frontend e Spring Boot no backend, contribuindo na criação de novas funcionalidades, manutenção evolutiva e corretiva, integrações entre serviços e sustentação da aplicação em produção. Foco em desempenho, segurança e regras de negócio.',
       type: 'work'
     },
     {
       role: 'Atleta Competidor de Kickboxing',
-      company: 'Eventos Oficiais / WGP / CBKB',
-      period: '2021 - Presente',
-      description: 'Participação ativa em campeonatos de kickboxing. Prática de autodisciplina contínua, resiliência extrema sob condições extremas de fadiga e habilidade vital de manter a calma sob pressão.',
+      company: 'K1, SFT',
+      period: '2014 - Presente',
+      description: 'Atuação em campeonatos de kickboxing com desenvolvimento contínuo de disciplina, controle emocional sob alta pressão, resiliência física e mental, e foco em performance competitiva.',
       type: 'sports'
     },
     {
-      role: 'Desenvolvedor Web (Estágio)',
-      company: 'Lupum',
-      period: '2023 - 2024',
-      description: 'Auxílio na implementação de layouts responsivos, correção de bugs em templates do Angular, estilização com Tailwind/CSS e consumo de rotas de APIs REST.',
+      role: 'Desenvolvedor',
+      company: 'Omega Sistemas',
+      period: '2012 - 2020',
+      description: 'Desenvolvimento de sistemas e integrações voltadas ao setor fiscal, com foco na comunicação entre software proprietário e a SEFAZ. Atuação também no ERP da empresa, participando da manutenção evolutiva e corretiva de sistemas legados, implementação de integrações via SOAP e uso de certificados digitais, garantindo conformidade e confiabilidade das operações.',
       type: 'work'
     },
     {
-      role: 'Tecnologia em Análise e Des. de Sistemas',
-      company: 'FEMA / Estácio',
-      period: '2022 - 2025',
-      description: 'Formação superior focada em arquitetura de sistemas, algoritmos, modelagem de banco de dados, engenharia de software e práticas ágeis de desenvolvimento.',
+      role: 'Bacharel em Ciência da Computação',
+      company: 'FEMA',
+      period: '2009 - 2022',
+      description: 'Formação em Ciência da Computação com base em arquitetura de sistemas, algoritmos, banco de dados, engenharia de software e desenvolvimento de aplicações. Início da graduação em 2009 e conclusão em 2022.',
       type: 'education'
     }
   ];

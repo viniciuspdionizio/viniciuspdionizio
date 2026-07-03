@@ -33,14 +33,6 @@
         alto desempenho.
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 animate-fade-in">
-        <a href="#projects" (click)="scrollToSection($event, '#projects')" class="w-full sm:w-auto btn-lupum-primary">
-          Ver Meus Projetos <i class="bi bi-arrow-right-short text-lg"></i>
-        </a>
-        <a href="#contact" (click)="scrollToSection($event, '#contact')" class="w-full sm:w-auto btn-lupum-stroked">
-          Fale Comigo
-        </a>
-      </div>
     </div>
 
     <!-- Scroll Down Icon -->
@@ -68,27 +60,6 @@
 
       <!-- Skills Grid Component -->
       <app-skills-grid [categories]="skillsCategories"></app-skills-grid>
-
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 md:py-28 border-b border-dark-border/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <!-- Título da Seção -->
-      <div class="text-center md:text-left mb-12 md:mb-16">
-        <span class="text-xs font-mono text-primary uppercase tracking-widest">Portfólio</span>
-        <h2 class="text-3xl md:text-4xl font-bold font-outfit text-foreground mt-2">Projetos em Destaque</h2>
-        <div class="w-12 h-1 bg-primary mt-4 rounded"></div>
-      </div>
-
-      <!-- Grid de Projetos -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        @for (project of projects; track project.title) {
-        <app-project-card [project]="project"></app-project-card>
-        }
-      </div>
 
     </div>
   </section>
