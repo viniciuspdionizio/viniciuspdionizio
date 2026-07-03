@@ -42,7 +42,7 @@ export const handler: Handler = async (event) => {
       body: JSON.stringify({ success: true })
     };
   } catch (error) {
-    console.error(error);
+    console.error('Resend Error: ', error);
 
     return {
       statusCode: 500,
