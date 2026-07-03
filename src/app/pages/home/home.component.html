@@ -4,25 +4,33 @@
   <!-- Hero Section -->
   <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
     <!-- Efeitos de Luz de Fundo (Glow Effect) -->
-    <div class="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/10 blur-[80px] -z-10 animate-pulse"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 rounded-full bg-accent/10 blur-[80px] -z-10 animate-pulse delay-700"></div>
+    <div
+      class="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/10 blur-[80px] -z-10 animate-pulse">
+    </div>
+    <div
+      class="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 rounded-full bg-accent/10 blur-[80px] -z-10 animate-pulse delay-700">
+    </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center relative z-10">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-primary/10 border border-primary/20 text-primary mb-6 animate-fade-in">
+      <span
+        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-primary/10 border border-primary/20 text-primary mb-6 animate-fade-in">
         <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
         Disponível para projetos
       </span>
-      
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold font-outfit tracking-tight leading-none text-foreground animate-fade-in">
+
+      <h1
+        class="text-4xl sm:text-6xl md:text-7xl font-extrabold font-outfit tracking-tight leading-none text-foreground animate-fade-in">
         Vinicius Dionizio
       </h1>
-      
+
       <p class="text-lg sm:text-2xl font-semibold font-outfit text-muted mt-6 max-w-2xl mx-auto animate-fade-in">
-        Desenvolvedor <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Front-End</span> &amp; Atleta de <span class="text-amber-500">Kickboxing</span>
+        Desenvolvedor <span
+          class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Full-Stack</span>
       </p>
 
       <p class="text-sm sm:text-base text-muted/80 max-w-xl mx-auto mt-4 leading-relaxed font-sans animate-fade-in">
-        Construindo interfaces web modernas e robustas com Angular &amp; Tailwind CSS, trazendo a disciplina e o foco dos ringues para a excelência em engenharia de software.
+        Foco em interfaces web modernas, experiência do usuário, qualidade de código e desenvolvimento de software de
+        alto desempenho.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 animate-fade-in">
@@ -50,7 +58,7 @@
   <!-- Skills Section -->
   <section id="skills" class="py-20 md:py-28 border-b border-dark-border/30 bg-dark-card/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <!-- Título da Seção -->
       <div class="text-center md:text-left mb-12 md:mb-16">
         <span class="text-xs font-mono text-primary uppercase tracking-widest">Stack Tecnológica</span>
@@ -67,7 +75,7 @@
   <!-- Projects Section -->
   <section id="projects" class="py-20 md:py-28 border-b border-dark-border/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <!-- Título da Seção -->
       <div class="text-center md:text-left mb-12 md:mb-16">
         <span class="text-xs font-mono text-primary uppercase tracking-widest">Portfólio</span>
@@ -78,7 +86,7 @@
       <!-- Grid de Projetos -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         @for (project of projects; track project.title) {
-          <app-project-card [project]="project"></app-project-card>
+        <app-project-card [project]="project"></app-project-card>
         }
       </div>
 
@@ -88,7 +96,7 @@
   <!-- Experience/Timeline Section -->
   <section id="experience" class="py-20 md:py-28 border-b border-dark-border/30 bg-dark-card/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <!-- Título da Seção -->
       <div class="text-center md:text-left mb-12 md:mb-16">
         <span class="text-xs font-mono text-primary uppercase tracking-widest">Histórico</span>
