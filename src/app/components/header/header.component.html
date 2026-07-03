@@ -1,0 +1,68 @@
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+        [ngClass]="{
+          'bg-dark-bg/60 backdrop-blur-lg border-b border-dark-border/50 py-3 shadow-lg shadow-black/10': isScrolled,
+          'bg-transparent py-5': !isScrolled
+        }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-12">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="#home" (click)="scrollToSection($event, '#home')" class="text-xl font-bold font-outfit tracking-wide bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+          Vinicius Dionizio
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center space-x-8">
+        @for (link of navLinks; track link.label) {
+          <a [href]="link.href" (click)="scrollToSection($event, link.href)" 
+             class="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200">
+            {{ link.label }}
+          </a>
+        }
+        <a href="#contact" (click)="scrollToSection($event, '#contact')" class="btn-lupum-primary !py-2 !px-4">
+          Fale Comigo
+        </a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button (click)="toggleMenu()" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-muted hover:text-foreground hover:bg-dark-card/50 focus:outline-none transition-colors" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Abrir menu principal</span>
+          @if (!isMenuOpen) {
+            <!-- Icon Open -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          } @else {
+            <!-- Icon Close -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu, show/hide based on menu state. -->
+  <div class="md:hidden transition-all duration-300 overflow-hidden" 
+       [ngClass]="{
+         'max-h-screen border-b border-dark-border/80 bg-dark-bg/95 backdrop-blur-xl': isMenuOpen,
+         'max-h-0': !isMenuOpen
+       }" id="mobile-menu">
+    <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+      @for (link of navLinks; track link.label) {
+        <a [href]="link.href" (click)="scrollToSection($event, link.href)" 
+           class="block px-3 py-2.5 rounded-md text-base font-medium text-foreground/80 hover:text-primary hover:bg-dark-card/50 transition-all">
+          {{ link.label }}
+        </a>
+      }
+      <div class="pt-4 px-3">
+        <a href="#contact" (click)="scrollToSection($event, '#contact')" class="w-full btn-lupum-primary">
+          Fale Comigo
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

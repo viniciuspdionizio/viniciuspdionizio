@@ -1,0 +1,21 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+export interface TimelineItem {
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  type: 'work' | 'education' | 'sports';
+}
+
+@Component({
+  selector: 'app-timeline',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './timeline.component.html',
+  styleUrl: './timeline.component.sass'
+})
+export class TimelineComponent {
+  @Input({ required: true }) items: TimelineItem[] = [];
+}
