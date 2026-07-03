@@ -20,9 +20,11 @@ export const handler: Handler = async (event) => {
   try {
     const { name, email, message, phone } = JSON.parse(event.body ?? '{}');
 
-    await resend.emails.send({
-      from: 'Contato - Vinicius <viniciuspdionizio@resend.dev>',
-      to: 'viniciuspdionizio@gmail.com',
+    console.log('Received contact form submission:', event);
+
+    const result = await resend.emails.send({
+      from: 'Contato - Vinicius <dev.viniciuspd@resend.dev>',
+      to: 'dev.viniciuspd@gmail.com',
       subject: `Contato de ${name}`,
       replyTo: email,
       html: `
@@ -37,9 +39,17 @@ export const handler: Handler = async (event) => {
       `,
     });
 
+    console.debug('Resend Result: ', result);
+    if (result.error) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: result.error }),
+      };
+    }
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true }),
+      body: JSON.stringify({ success: true, result }),
     };
   } catch (error) {
     console.error('Resend Error: ', error);
