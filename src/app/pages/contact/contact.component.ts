@@ -5,14 +5,13 @@ import { finalize } from 'rxjs';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
-  selector: 'app-contact',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.sass'
+    selector: 'app-contact',
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './contact.component.html',
+    styleUrl: './contact.component.sass'
 })
 export default class ContactComponent {
   private contactService = inject(ContactService);

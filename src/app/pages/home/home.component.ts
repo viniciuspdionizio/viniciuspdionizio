@@ -9,20 +9,19 @@ import AboutComponent from '../about/about.component';
 import ContactComponent from '../contact/contact.component';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    CommonModule,
-    HeaderComponent,
-    FooterComponent,
-    ProjectCardComponent,
-    TimelineComponent,
-    SkillsGridComponent,
-    AboutComponent,
-    ContactComponent
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.sass'
+    selector: 'app-home',
+    imports: [
+        CommonModule,
+        HeaderComponent,
+        FooterComponent,
+        ProjectCardComponent,
+        TimelineComponent,
+        SkillsGridComponent,
+        AboutComponent,
+        ContactComponent
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.sass'
 })
 export default class HomeComponent {
   skillsCategories: SkillCategory[] = [

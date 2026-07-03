@@ -11,11 +11,10 @@ export interface Project {
 }
 
 @Component({
-  selector: 'app-project-card',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './project-card.component.html',
-  styleUrl: './project-card.component.sass'
+    selector: 'app-project-card',
+    imports: [CommonModule],
+    templateUrl: './project-card.component.html',
+    styleUrl: './project-card.component.sass'
 })
 export class ProjectCardComponent {
   @Input({ required: true }) project!: Project;

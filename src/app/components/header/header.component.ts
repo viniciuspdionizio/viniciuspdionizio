@@ -2,11 +2,10 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.sass'
+    selector: 'app-header',
+    imports: [CommonModule],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.sass'
 })
 export class HeaderComponent {
   isMenuOpen = false;

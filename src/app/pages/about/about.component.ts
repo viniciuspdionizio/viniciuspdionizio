@@ -2,11 +2,10 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-about',
-  standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.sass'
+    selector: 'app-about',
+    imports: [CommonModule, NgOptimizedImage],
+    templateUrl: './about.component.html',
+    styleUrl: './about.component.sass'
 })
 export default class AboutComponent {
   stats = [
