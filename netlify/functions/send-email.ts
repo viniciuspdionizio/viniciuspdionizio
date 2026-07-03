@@ -1,7 +1,13 @@
 import type { Handler } from '@netlify/functions';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env['RESEND_API_KEY']);
+const apiKey = process.env['RESEND_API_KEY'];
+
+if (!apiKey) {
+  throw new Error('Missing RESEND_API_KEY');
+}
+
+const resend = new Resend(apiKey);
 
 export const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST') {
