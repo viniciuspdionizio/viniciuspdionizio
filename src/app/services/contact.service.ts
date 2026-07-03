@@ -16,7 +16,7 @@ export class ContactService {
   constructor(private http: HttpClient) { }
 
   sendEmail(data: { name: string, email: string, phone?: string, message: string }) {
-    return this.http.post<ResendResponse>(this.apiUrl, { body: data });
+    return this.http.post<ResendResponse>(this.apiUrl, { ...data });
   }
 
 }

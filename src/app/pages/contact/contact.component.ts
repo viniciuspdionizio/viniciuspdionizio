@@ -61,7 +61,7 @@ export default class ContactComponent {
           }
           const subject = encodeURIComponent('Contato');
           const body = encodeURIComponent(`Nome: ${this.form.get('name')?.value || ''}\nEmail: ${this.form.get('email')?.value || ''}\nTelefone: ${this.form.get('phone')?.value || ''}\nMensagem: ${this.form.get('message')?.value || ''}`);
-          const mailtoUrl = `mailto:viniciuspdionizio@gmail.com?subject=${subject}&body=${body}`;
+          const mailtoUrl = `mailto:dev.viniciuspd@gmail.com?subject=${subject}&body=${body}`;
           window.open(mailtoUrl, '_blank', 'noopener,noreferrer');
         }
 
