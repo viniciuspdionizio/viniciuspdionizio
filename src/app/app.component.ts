@@ -1,11 +1,13 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NgxSonnerToaster } from 'ngx-sonner';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterModule],
+    imports: [RouterModule, NgxSonnerToaster],
     templateUrl: './app.component.html',
     styleUrl: './app.component.sass',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class AppComponent {
+}

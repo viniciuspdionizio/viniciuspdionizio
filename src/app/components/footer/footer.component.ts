@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { socials } from '../utils/socials';
 
 @Component({
     selector: 'app-footer',
@@ -10,12 +11,7 @@ import { CommonModule } from '@angular/common';
 export class FooterComponent {
   currentYear = new Date().getFullYear();
 
-  socials = [
-    { name: 'GitHub', icon: 'bi bi-github', url: 'https://github.com/viniciuspdionizio' },
-    { name: 'LinkedIn', icon: 'bi bi-linkedin', url: 'https://linkedin.com/in/viniciuspdionizio' },
-    { name: 'WhatsApp', icon: 'bi bi-whatsapp', url: 'https://wa.me/+5518997169891' },
-    { name: 'Instagram', icon: 'bi bi-instagram', url: 'https://instagram.com/viniciuspdionizio' }
-  ];
+  socials = socials;
 
   scrollToSection(event: Event, targetId: string) {
     event.preventDefault();

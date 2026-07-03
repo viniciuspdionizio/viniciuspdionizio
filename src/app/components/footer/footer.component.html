@@ -1,32 +1,35 @@
-<footer class="border-t border-dark-border/50 bg-dark-bg/20 py-12">
+<footer class="border-t border-dark-border/50 bg-dark-card py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      
+
       <!-- Logo/Brand -->
       <div class="text-center md:text-left">
-        <h3 class="text-lg font-semibold font-outfit bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <h3
+          class="text-lg font-semibold font-outfit bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Vinicius Dionizio
         </h3>
-        <p class="text-xs text-muted mt-1">Desenvolvedor de Software & Atleta</p>
+        <p class="text-xs text-muted mt-1">Desenvolvedor de Software</p>
       </div>
 
       <!-- Links rápidos -->
       <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted">
-        <a href="#home" (click)="scrollToSection($event, '#home')" class="hover:text-primary transition-colors">Início</a>
-        <a href="#about" (click)="scrollToSection($event, '#about')" class="hover:text-primary transition-colors">Sobre Mim</a>
-        <a href="#skills" (click)="scrollToSection($event, '#skills')" class="hover:text-primary transition-colors">Habilidades</a>
-        <a href="#projects" (click)="scrollToSection($event, '#projects')" class="hover:text-primary transition-colors">Projetos</a>
-        <a href="#experience" (click)="scrollToSection($event, '#experience')" class="hover:text-primary transition-colors">Experiência</a>
+        <a href="#home" (click)="scrollToSection($event, '#home')"
+          class="hover:text-primary transition-colors">Início</a>
+        <a href="#about" (click)="scrollToSection($event, '#about')" class="hover:text-primary transition-colors">Sobre
+          Mim</a>
+        <a href="#skills" (click)="scrollToSection($event, '#skills')"
+          class="hover:text-primary transition-colors">Habilidades</a>
+        <a href="#experience" (click)="scrollToSection($event, '#experience')"
+          class="hover:text-primary transition-colors">Experiência</a>
       </nav>
 
       <!-- Redes Sociais -->
       <div class="flex items-center gap-4">
         @for (social of socials; track social.name) {
-          <a [href]="social.url" target="_blank" rel="noopener noreferrer" 
-             [title]="social.name"
-             class="flex items-center justify-center w-9 h-9 rounded-full bg-dark-card border border-dark-border text-muted hover:text-primary hover:border-primary/60 transition-all duration-300 hover:-translate-y-1">
-            <i [class]="social.icon + ' text-base'"></i>
-          </a>
+        <a [href]="social.url" target="_blank" rel="noopener noreferrer" [title]="social.name"
+          [class]="'flex items-center justify-center w-9 h-9 rounded-full bg-dark-card border border-dark-border text-muted transition-all duration-300 hover:-translate-y-1 ' + social.color">
+          <i [class]="social.icon + ' text-base'"></i>
+        </a>
         }
       </div>
     </div>
@@ -38,8 +41,7 @@
     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
       <p>&copy; {{ currentYear }} Vinicius Dionizio. Todos os direitos reservados.</p>
       <p class="flex items-center gap-1">
-        Desenvolvido com <i class="bi bi-heart-fill text-red-500 animate-pulse"></i> em Angular & Tailwind
-      </p>
+        Desenvolvido com <i class="bi bi-heart-fill text-red-500 animate-pulse"></i> </p>
     </div>
   </div>
 </footer>

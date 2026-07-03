@@ -2,10 +2,10 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-header',
-    imports: [CommonModule],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.sass'
+  selector: 'app-header',
+  imports: [CommonModule],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.sass'
 })
 export class HeaderComponent {
   isMenuOpen = false;
@@ -15,7 +15,6 @@ export class HeaderComponent {
     { label: 'Início', href: '#home' },
     { label: 'Sobre Mim', href: '#about' },
     { label: 'Habilidades', href: '#skills' },
-    { label: 'Projetos', href: '#projects' },
     { label: 'Experiência', href: '#experience' },
     { label: 'Contato', href: '#contact' }
   ];
