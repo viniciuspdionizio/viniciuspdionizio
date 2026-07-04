@@ -124,6 +124,10 @@
               <textarea id="message" formControlName="message" rows="5" placeholder="Como posso ajudar você?"
                 class="w-full bg-dark-bg border border-dark-border/80 rounded-lg px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 placeholder:text-muted/60"
                 [ngClass]="{'border-red-500/50 focus:ring-red-500/10': form.controls.message.touched && form.controls.message.invalid}"></textarea>
+              <span class="text-xs text-muted block text-right"
+              [class.text-green-500]="form.controls.message.valid"
+              [class.text-red-500]="form.controls.message.invalid"
+              >{{ form.controls.message.value.length }} / 10</span>
               @if (form.controls.message.touched && form.controls.message.invalid) {
               <span class="text-xs text-red-500 mt-1.5 block font-sans">
                 @if (form.controls.message.errors?.['required']) { A mensagem é obrigatória. }
