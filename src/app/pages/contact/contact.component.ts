@@ -14,7 +14,7 @@ import { ContactService } from '../../services/contact.service';
     ReactiveFormsModule,
   ],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.sass'
+  styleUrl: './contact.component.scss'
 })
 export default class ContactComponent {
   private contactService = inject(ContactService);

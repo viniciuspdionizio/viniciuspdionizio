@@ -6,7 +6,7 @@ import { socials } from '../utils/socials';
     selector: 'app-footer',
     imports: [CommonModule],
     templateUrl: './footer.component.html',
-    styleUrl: './footer.component.sass'
+    styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();

@@ -13,7 +13,7 @@ export interface TimelineItem {
     selector: 'app-timeline',
     imports: [CommonModule],
     templateUrl: './timeline.component.html',
-    styleUrl: './timeline.component.sass'
+    styleUrl: './timeline.component.scss'
 })
 export class TimelineComponent {
   @Input({ required: true }) items: TimelineItem[] = [];
