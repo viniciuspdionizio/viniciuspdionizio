@@ -19,7 +19,7 @@ import ContactComponent from '../contact/contact.component';
     ContactComponent
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.sass'
+  styleUrl: './home.component.scss'
 })
 export default class HomeComponent {
   skillsCategories: SkillCategory[] = [

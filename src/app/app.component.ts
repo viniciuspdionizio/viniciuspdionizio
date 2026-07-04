@@ -6,7 +6,7 @@ import { NgxSonnerToaster } from 'ngx-sonner';
     selector: 'app-root',
     imports: [RouterModule, NgxSonnerToaster],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.sass',
+    styleUrl: './app.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {

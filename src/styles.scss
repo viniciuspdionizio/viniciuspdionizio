@@ -1,19 +1,23 @@
-@use './sass/base'
-@use './sass/layout'
-@use './sass/components'
+@use './styles/base';
+@use './styles/layout';
+@use './styles/components';
 
-@tailwind base
-@tailwind components
-@tailwind utilities
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.linkedin
+.linkedin {
   @apply hover:text-[#0a66c2] hover:border-[#0a66c2]/40;
+}
 
-.github
+.github {
   @apply hover:text-[#f0f6fc] hover:border-[#f0f6fc]/40;
+}
 
-.whatsapp
+.whatsapp {
   @apply hover:text-[#25d366] hover:border-[#25d366]/40;
+}
 
-.instagram
+.instagram {
   @apply hover:text-[#e1306c] hover:border-[#e1306c]/40;
+}
