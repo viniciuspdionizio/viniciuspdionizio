@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     selector: 'app-about',
     imports: [CommonModule, NgOptimizedImage],
     templateUrl: './about.component.html',
-    styleUrl: './about.component.sass'
+    styleUrl: './about.component.scss'
 })
 export default class AboutComponent {
   stats = [

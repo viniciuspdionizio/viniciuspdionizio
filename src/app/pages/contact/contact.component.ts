@@ -6,15 +6,17 @@ import { toast } from 'ngx-sonner';
 import { finalize } from 'rxjs';
 import { socials } from '../../components/utils/socials';
 import { ContactService } from '../../services/contact.service';
+import IntlTelInput from '@intl-tel-input/angular';
 
 @Component({
   selector: 'app-contact',
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    IntlTelInput
   ],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.sass'
+  styleUrl: './contact.component.scss'
 })
 export default class ContactComponent {
   private contactService = inject(ContactService);
