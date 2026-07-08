@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 export interface Skill {
   name: string;
@@ -14,7 +14,7 @@ export interface SkillCategory {
 
 @Component({
     selector: 'app-skills-grid',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './skills-grid.component.html',
     styleUrl: './skills-grid.component.scss'
 })

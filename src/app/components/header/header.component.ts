@@ -33,7 +33,7 @@ export class HeaderComponent {
     this.isMenuOpen = false;
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 }
