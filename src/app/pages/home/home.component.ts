@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { HeaderComponent } from '../../components/header/header.component';
@@ -10,14 +10,13 @@ import ContactComponent from '../contact/contact.component';
 @Component({
   selector: 'app-home',
   imports: [
-    CommonModule,
     HeaderComponent,
     FooterComponent,
     TimelineComponent,
     SkillsGridComponent,
     AboutComponent,
     ContactComponent
-  ],
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
