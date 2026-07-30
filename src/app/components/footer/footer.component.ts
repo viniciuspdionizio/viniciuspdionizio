@@ -1,6 +1,8 @@
 
 import { Component } from '@angular/core';
+import { versionInfo } from '../../version-info';
 import { socials } from '../utils/socials';
+
 
 @Component({
     selector: 'app-footer',
@@ -9,6 +11,7 @@ import { socials } from '../utils/socials';
     styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
+  readonly versionInfo = versionInfo;
   currentYear = new Date().getFullYear();
 
   socials = socials;
