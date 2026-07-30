@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
+  production: true,
   netlifyHostUrl: 'https://viniciuspdionizio.netlify.app'
 };
