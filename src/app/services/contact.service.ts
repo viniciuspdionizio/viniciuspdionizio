@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from './../../environments/environment.development';
 
 interface ResendResponse {
   statusCode: number;
@@ -7,16 +8,22 @@ interface ResendResponse {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ContactService {
+  private readonly apiUrl = environment.netlifyHostUrl;
 
-  private readonly apiUrl = '/.netlify/functions/send-email';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  sendEmail(data: { name: string, email: string, phone?: string, message: string }) {
-    return this.http.post<ResendResponse>(this.apiUrl, { ...data });
+  sendEmail(data: {
+    name: string;
+    email: string;
+    phone?: string;
+    message: string;
+  }) {
+    return this.http.post<ResendResponse>(
+      `${this.apiUrl}/.netlify/functions/send-email`,
+      { ...data },
+    );
   }
-
 }
