@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 /**
  * Centraliza a navegação por âncoras (scroll suave até uma seção da página).
@@ -9,7 +9,7 @@ import { Inject, Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ScrollService {
-  constructor(@Inject(DOCUMENT) private readonly document: Document) {}
+  private readonly document = inject(DOCUMENT);
 
   scrollToSection(event: Event, targetId: string): void {
     event.preventDefault();
