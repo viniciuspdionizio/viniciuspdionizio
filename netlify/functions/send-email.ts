@@ -10,6 +10,49 @@ if (!apiKey) {
 
 const resend = new Resend(apiKey);
 
+// --- Mensagens (pt-BR / en-US) ----------------------------------------------
+// Só as mensagens devolvidas ao visitante do site precisam acompanhar o
+// idioma dele (ver X-App-Locale, enviado por ContactService). O e-mail que
+// chega na caixa do dono do site (abaixo, no corpo do handler) continua
+// sempre em pt-BR — quem lê é sempre a mesma pessoa.
+type MessageKey =
+  | 'unauthorizedOrigin'
+  | 'tooManyRequests'
+  | 'invalidName'
+  | 'invalidEmail'
+  | 'invalidMessage'
+  | 'invalidPhone'
+  | 'sendFailed'
+  | 'internalError';
+
+const MESSAGES: Record<'pt' | 'en', Record<MessageKey, string>> = {
+  pt: {
+    unauthorizedOrigin: 'Origem não autorizada.',
+    tooManyRequests: 'Muitas tentativas. Tente novamente em alguns minutos.',
+    invalidName: 'Nome inválido.',
+    invalidEmail: 'E-mail inválido.',
+    invalidMessage: 'Mensagem inválida.',
+    invalidPhone: 'Telefone inválido.',
+    sendFailed: 'Não foi possível enviar o e-mail. Tente novamente mais tarde.',
+    internalError: 'Erro interno ao processar a solicitação.',
+  },
+  en: {
+    unauthorizedOrigin: 'Unauthorized origin.',
+    tooManyRequests: 'Too many attempts. Please try again in a few minutes.',
+    invalidName: 'Invalid name.',
+    invalidEmail: 'Invalid email.',
+    invalidMessage: 'Invalid message.',
+    invalidPhone: 'Invalid phone number.',
+    sendFailed: 'Could not send the email. Please try again later.',
+    internalError: 'Internal error while processing the request.',
+  },
+};
+
+const messagesFor = (event: HandlerEvent) => {
+  const locale = event.headers['x-app-locale'] ?? '';
+  return MESSAGES[locale.toLowerCase().startsWith('en') ? 'en' : 'pt'];
+};
+
 // --- Origens autorizadas ---------------------------------------------------
 // Só o próprio site (produção, deploy previews/branch deploys do Netlify e o
 // ambiente local de desenvolvimento) pode chamar esta function.
@@ -49,7 +92,7 @@ const corsHeaders = (event: HandlerEvent): Record<string, string> => {
   return {
     'Access-Control-Allow-Origin': origin && isAllowedOrigin(origin) ? origin : ALLOWED_ORIGINS[0],
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, X-App-Locale',
     Vary: 'Origin',
   };
 };
@@ -99,21 +142,21 @@ const escapeHtml = (value: unknown): string =>
     }
   });
 
-const validate = (payload: ContactPayload): string | null => {
+const validate = (payload: ContactPayload, messages: Record<MessageKey, string>): string | null => {
   const name = String(payload.name ?? '').trim();
   const email = String(payload.email ?? '').trim();
   const message = String(payload.message ?? '').trim();
 
-  if (name.length < 3 || name.length > 120) return 'Nome inválido.';
-  if (!EMAIL_PATTERN.test(email) || email.length > 200) return 'E-mail inválido.';
-  if (message.length < 10 || message.length > 5000) return 'Mensagem inválida.';
+  if (name.length < 3 || name.length > 120) return messages.invalidName;
+  if (!EMAIL_PATTERN.test(email) || email.length > 200) return messages.invalidEmail;
+  if (message.length < 10 || message.length > 5000) return messages.invalidMessage;
   if (typeof payload.phone !== 'undefined') {
     const phone = String(payload.phone).trim();
-    if (phone.length > 40) return 'Telefone inválido.'; // guarda barata primeiro (anti-DoS trivial)
+    if (phone.length > 40) return messages.invalidPhone; // guarda barata primeiro (anti-DoS trivial)
     // O frontend sempre normaliza o telefone para E.164 antes de enviar (ver
     // ContactComponent.toE164()), então não precisamos de um hint de país
     // aqui — o "+" e o código do país já vêm embutidos no valor.
-    if (phone && !isValidPhoneNumber(phone)) return 'Telefone inválido.';
+    if (phone && !isValidPhoneNumber(phone)) return messages.invalidPhone;
   }
 
   return null;
@@ -128,11 +171,13 @@ export const handler: Handler = async (event) => {
     return { statusCode: 405, headers: corsHeaders(event), body: 'Method not allowed' };
   }
 
+  const messages = messagesFor(event);
+
   if (!isFromAllowedSite(event)) {
     return {
       statusCode: 403,
       headers: corsHeaders(event),
-      body: JSON.stringify({ error: 'Origem não autorizada.' }),
+      body: JSON.stringify({ error: messages.unauthorizedOrigin }),
     };
   }
 
@@ -141,7 +186,7 @@ export const handler: Handler = async (event) => {
     return {
       statusCode: 429,
       headers: corsHeaders(event),
-      body: JSON.stringify({ error: 'Muitas tentativas. Tente novamente em alguns minutos.' }),
+      body: JSON.stringify({ error: messages.tooManyRequests }),
     };
   }
 
@@ -159,7 +204,7 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    const validationError = validate(payload);
+    const validationError = validate(payload, messages);
     if (validationError) {
       return {
         statusCode: 400,
@@ -199,7 +244,7 @@ export const handler: Handler = async (event) => {
       return {
         statusCode: 500,
         headers: corsHeaders(event),
-        body: JSON.stringify({ error: 'Não foi possível enviar o e-mail. Tente novamente mais tarde.' }),
+        body: JSON.stringify({ error: messages.sendFailed }),
       };
     }
 
@@ -214,7 +259,7 @@ export const handler: Handler = async (event) => {
     return {
       statusCode: 500,
       headers: corsHeaders(event),
-      body: JSON.stringify({ error: 'Erro interno ao processar a solicitação.' }),
+      body: JSON.stringify({ error: messages.internalError }),
     };
   }
 };

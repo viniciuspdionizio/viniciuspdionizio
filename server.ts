@@ -2,14 +2,19 @@ import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr/node';
 import express from 'express';
 import { fileURLToPath } from 'node:url';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join, sep } from 'node:path';
 import bootstrap from './src/main.server';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../browser');
+  // Build localizado (ver "i18n" em angular.json): este arquivo é compilado
+  // uma vez por idioma, para dist/server (pt-BR) e dist/server/en (en-US).
+  // "../browser" fixo só funcionaria para pt-BR — trocar apenas o segmento
+  // "server" por "browser" preserva o sufixo de locale (ex: "/en") nos dois
+  // casos.
+  const browserDistFolder = serverDistFolder.replace(new RegExp(`\\${sep}server(?=\\${sep}|$)`), `${sep}browser`);
   const indexHtml = join(serverDistFolder, 'index.server.html');
 
   const commonEngine = new CommonEngine();

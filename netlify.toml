@@ -2,6 +2,17 @@
   publish = "dist/viniciuspdionizio/browser"
   functions = "netlify/functions"
 
+# Build localizado (ver "i18n" em angular.json): pt-BR (idioma-fonte) sai na
+# raiz de dist/browser, en-US sai em dist/browser/en/. Cada idioma vira uma
+# página estática prerenderizada própria (index.html real), então essas
+# regras só entram em ação como fallback para uma URL sem arquivo
+# correspondente — mantendo o visitante no idioma certo em vez de cair
+# sempre no pt-BR.
+[[redirects]]
+  from = "/en/*"
+  to = "/en/index.html"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
