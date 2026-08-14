@@ -13,13 +13,13 @@
 
       <!-- Links rápidos -->
       <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted">
-        <a href="#home" (click)="scrollToSection($event, '#home')"
+        <a href="#home" (click)="scrollService.scrollToSection($event, '#home')"
           class="hover:text-primary transition-colors">Início</a>
-        <a href="#about" (click)="scrollToSection($event, '#about')" class="hover:text-primary transition-colors">Sobre
+        <a href="#about" (click)="scrollService.scrollToSection($event, '#about')" class="hover:text-primary transition-colors">Sobre
           Mim</a>
-        <a href="#skills" (click)="scrollToSection($event, '#skills')"
+        <a href="#skills" (click)="scrollService.scrollToSection($event, '#skills')"
           class="hover:text-primary transition-colors">Habilidades</a>
-        <a href="#experience" (click)="scrollToSection($event, '#experience')"
+        <a href="#experience" (click)="scrollService.scrollToSection($event, '#experience')"
           class="hover:text-primary transition-colors">Experiência</a>
       </nav>
 
