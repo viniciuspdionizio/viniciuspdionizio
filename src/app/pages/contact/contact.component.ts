@@ -25,7 +25,8 @@ export default class ContactComponent {
   form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', []],
+    // Opcional, mas se preenchido precisa parecer um telefone (mesmo limite do backend: 40 chars).
+    phone: ['', [Validators.pattern(/^[0-9+()\-\s]{8,40}$/)]],
     message: ['', [Validators.required, Validators.minLength(10)]],
     // Honeypot anti-spam: campo invisível para humanos (ver contact.component.html).
     // Se vier preenchido, o backend descarta o envio silenciosamente.
