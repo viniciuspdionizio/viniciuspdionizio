@@ -1,5 +1,6 @@
 import type { Handler, HandlerEvent } from '@netlify/functions';
 import { Resend } from 'resend';
+import { isValidPhoneNumber } from 'libphonenumber-js/min';
 
 const apiKey = process.env['RESEND_API_KEY'];
 
@@ -106,7 +107,14 @@ const validate = (payload: ContactPayload): string | null => {
   if (name.length < 3 || name.length > 120) return 'Nome inválido.';
   if (!EMAIL_PATTERN.test(email) || email.length > 200) return 'E-mail inválido.';
   if (message.length < 10 || message.length > 5000) return 'Mensagem inválida.';
-  if (typeof payload.phone !== 'undefined' && String(payload.phone).length > 40) return 'Telefone inválido.';
+  if (typeof payload.phone !== 'undefined') {
+    const phone = String(payload.phone).trim();
+    if (phone.length > 40) return 'Telefone inválido.'; // guarda barata primeiro (anti-DoS trivial)
+    // O frontend sempre normaliza o telefone para E.164 antes de enviar (ver
+    // ContactComponent.toE164()), então não precisamos de um hint de país
+    // aqui — o "+" e o código do país já vêm embutidos no valor.
+    if (phone && !isValidPhoneNumber(phone)) return 'Telefone inválido.';
+  }
 
   return null;
 };
