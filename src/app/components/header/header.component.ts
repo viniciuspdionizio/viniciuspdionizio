@@ -1,5 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  private readonly scrollService = inject(ScrollService);
+
   isMenuOpen = false;
   isScrolled = false;
 
@@ -29,11 +32,7 @@ export class HeaderComponent {
   }
 
   scrollToSection(event: Event, targetId: string) {
-    event.preventDefault();
     this.isMenuOpen = false;
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    this.scrollService.scrollToSection(event, targetId);
   }
 }

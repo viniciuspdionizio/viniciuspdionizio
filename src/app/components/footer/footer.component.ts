@@ -1,9 +1,8 @@
-
-import { Component } from '@angular/core';
+import { Component, inject, isDevMode } from '@angular/core';
 import { versionInfo } from '../../version-info';
 import { socials } from '../utils/socials';
 import { DatePipe } from '@angular/common';
-
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,20 +11,18 @@ import { DatePipe } from '@angular/common';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
+  protected readonly scrollService = inject(ScrollService);
+
   readonly versionInfo = versionInfo;
   currentYear = new Date().getFullYear();
 
-  ngOnInit() {
-    console.log('Version Info:', this.versionInfo);
-  }
-
   socials = socials;
 
-  scrollToSection(event: Event, targetId: string) {
-    event.preventDefault();
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  ngOnInit() {
+    // Ajuda a conferir a versão publicada durante o desenvolvimento;
+    // não aparece no console em produção.
+    if (isDevMode()) {
+      console.log('Version Info:', this.versionInfo);
     }
   }
 }
