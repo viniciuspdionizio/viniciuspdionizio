@@ -8,19 +8,19 @@
           class="text-lg font-semibold font-outfit bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Vinicius Dionizio
         </h3>
-        <p class="text-xs text-muted mt-1">Desenvolvedor de Software</p>
+        <p class="text-xs text-muted mt-1" i18n="@@footer.role">Desenvolvedor de Software</p>
       </div>
 
       <!-- Links rápidos -->
       <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted">
         <a href="#home" (click)="scrollService.scrollToSection($event, '#home')"
-          class="hover:text-primary transition-colors">Início</a>
-        <a href="#about" (click)="scrollService.scrollToSection($event, '#about')" class="hover:text-primary transition-colors">Sobre
+          class="hover:text-primary transition-colors" i18n="@@nav.home">Início</a>
+        <a href="#about" (click)="scrollService.scrollToSection($event, '#about')" class="hover:text-primary transition-colors" i18n="@@nav.about">Sobre
           Mim</a>
         <a href="#skills" (click)="scrollService.scrollToSection($event, '#skills')"
-          class="hover:text-primary transition-colors">Habilidades</a>
+          class="hover:text-primary transition-colors" i18n="@@nav.skills">Habilidades</a>
         <a href="#experience" (click)="scrollService.scrollToSection($event, '#experience')"
-          class="hover:text-primary transition-colors">Experiência</a>
+          class="hover:text-primary transition-colors" i18n="@@nav.experience">Experiência</a>
       </nav>
 
       <!-- Redes Sociais -->
@@ -39,18 +39,18 @@
 
     <!-- Direitos Autorais -->
     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
-      <p>&copy; {{ currentYear }} Vinicius Dionizio. Todos os direitos reservados.</p>
+      <p i18n="@@footer.copyright">&copy; {{ currentYear }} Vinicius Dionizio. Todos os direitos reservados.</p>
 
       <div class="flex items-center gap-3">
-        <p class="flex items-center gap-1">
+        <p class="flex items-center gap-1" i18n="@@footer.madeWith">
           Desenvolvido com <i class="bi bi-heart-fill text-red-500 animate-pulse"></i>
         </p>
       </div>
 
       @if (versionInfo) {
       <section class="flex flex-col sm:flex-row items-center gap-2 text-xs text-muted">
-        <p>Versão: {{ versionInfo['version'] }}</p>
-        <p>Publicado em: {{ versionInfo.buildDate | date:'short' }}</p>
+        <p i18n="@@footer.version">Versão: {{ versionInfo['version'] }}</p>
+        <p i18n="@@footer.publishedAt">Publicado em: {{ versionInfo.buildDate | date:'short' }}</p>
       </section>
       }
     </div>

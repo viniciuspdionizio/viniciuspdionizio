@@ -1,6 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, inject, PLATFORM_ID, signal } from '@angular/core';
+import { Component, inject, LOCALE_ID, PLATFORM_ID, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import type { CountryCode } from 'libphonenumber-js/min';
 import { toast } from 'ngx-sonner';
@@ -10,6 +10,7 @@ import { ContactService } from '../../services/contact.service';
 import { CountrySelectComponent } from '../../shared/components/country-select/country-select.component';
 import { COUNTRIES } from '../../shared/data/countries';
 import { PhoneMaskDirective } from '../../shared/directives/phone-mask.directive';
+import { localizedCountryName } from '../../shared/utils/localized-country-name';
 import { loadPhoneLib } from '../../shared/utils/phone-lib-loader';
 import { readStoredCountry, writeStoredCountry } from '../../shared/utils/phone-country-storage';
 import { phoneNumberValidator } from '../../shared/validators/phone.validator';
@@ -28,6 +29,7 @@ import { phoneNumberValidator } from '../../shared/validators/phone.validator';
 export default class ContactComponent {
   private contactService = inject(ContactService);
   private fb = inject(FormBuilder);
+  private readonly locale = inject(LOCALE_ID);
 
   socials = socials;
 
@@ -81,20 +83,24 @@ export default class ContactComponent {
       }))
       .subscribe({
         next: () => {
-          toast.success('Email enviado com sucesso');
+          toast.success($localize`:@@contact.toast.success:Email enviado com sucesso`);
           this.submitSuccess.set(true);
           this.form.reset();
         },
         error: error => {
           console.error('Erro ao enviar email', { error });
           this.submitSuccess.set(false);
+          const genericError = $localize`:@@contact.toast.error.generic:Erro interno do servidor`;
           if (error instanceof HttpErrorResponse) {
-            toast.error('Erro ao enviar e-mail', { description: error.error?.error || 'Erro interno do servidor' });
+            toast.error($localize`:@@contact.toast.error.title:Erro ao enviar e-mail`, { description: error.error?.error || genericError });
           } else {
-            toast.error('Erro ao enviar e-mail', { description: 'Erro interno do servidor' });
+            toast.error($localize`:@@contact.toast.error.title:Erro ao enviar e-mail`, { description: genericError });
           }
-          const subject = encodeURIComponent('Contato');
-          const body = encodeURIComponent(`Nome: ${rawValue.name}\nEmail: ${rawValue.email}\nTelefone: ${this.formatPhoneForMailto(displayPhone)}\nMensagem: ${rawValue.message}`);
+          const subject = encodeURIComponent($localize`:@@contact.mailto.subject:Contato`);
+          const nameLabel = $localize`:@@contact.mailto.name:Nome`;
+          const phoneLabel = $localize`:@@contact.mailto.phone:Telefone`;
+          const messageLabel = $localize`:@@contact.mailto.message:Mensagem`;
+          const body = encodeURIComponent(`${nameLabel}: ${rawValue.name}\nEmail: ${rawValue.email}\n${phoneLabel}: ${this.formatPhoneForMailto(displayPhone)}\n${messageLabel}: ${rawValue.message}`);
           const mailtoUrl = `mailto:dev.viniciuspd@gmail.com?subject=${subject}&body=${body}`;
           window.open(mailtoUrl, '_blank', 'noopener,noreferrer');
         }
@@ -116,6 +122,6 @@ export default class ContactComponent {
     if (!displayPhone) return '';
     const country = COUNTRIES.find(c => c.iso2 === this.selectedCountry());
     if (!country) return displayPhone;
-    return `${country.name} (+${country.dialCode}): ${displayPhone}`;
+    return `${localizedCountryName(country, this.locale)} (+${country.dialCode}): ${displayPhone}`;
   }
 }
