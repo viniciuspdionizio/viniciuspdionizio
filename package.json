@@ -1,10 +1,11 @@
 {
   "name": "viniciuspdionizio",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "prebuild": "node scripts/generate-version.js",
+    "generate:countries": "node scripts/generate-countries.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -29,6 +30,7 @@
     "@netlify/functions": "^5.3.0",
     "@tailwindcss/forms": "^0.5.7",
     "express": "^4.18.2",
+    "libphonenumber-js": "^1.13.11",
     "ngx-sonner": "^3.1.0",
     "resend": "^6.16.0",
     "rxjs": "~7.8.0",

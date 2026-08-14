@@ -45,3 +45,6 @@ Thumbs.db
 .netlify
 
 src/app/version-info.ts
+
+# SDD working docs (não versionados — só apoio local de planejamento)
+/specs
