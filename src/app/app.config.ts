@@ -8,10 +8,6 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 
-// CLDR não tem um arquivo "pt-BR" separado: o locale base "pt" já usa as
-// convenções do Brasil (Portugal é o variante "pt-PT"). O LOCALE_ID como
-// 'pt-BR' continua correto — o Angular cai para os dados de "pt" registrados
-// aqui quando não encontra o país exato.
 registerLocaleData(localePt);
 
 export const appConfig: ApplicationConfig = {
