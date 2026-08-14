@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { environment } from './../../environments/environment';
 
 interface ResendResponse {
   statusCode: number;
-  body: string | { success: boolean } | { error: any };
+  body: string | { success: boolean } | { error: string };
 }
 
 @Injectable({
@@ -12,8 +12,7 @@ interface ResendResponse {
 })
 export class ContactService {
   private readonly apiUrl = environment.netlifyHostUrl;
-
-  constructor(private http: HttpClient) {}
+  private readonly http = inject(HttpClient);
 
   sendEmail(data: {
     name: string;

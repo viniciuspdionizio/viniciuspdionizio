@@ -1,4 +1,4 @@
-import { Component, inject, isDevMode } from '@angular/core';
+import { Component, inject, isDevMode, OnInit } from '@angular/core';
 import { versionInfo } from '../../version-info';
 import { socials } from '../utils/socials';
 import { DatePipe } from '@angular/common';
@@ -10,7 +10,7 @@ import { ScrollService } from '../../services/scroll.service';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   protected readonly scrollService = inject(ScrollService);
 
   readonly versionInfo = versionInfo;
