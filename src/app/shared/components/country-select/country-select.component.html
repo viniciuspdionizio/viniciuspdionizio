@@ -7,6 +7,11 @@
   class="w-full sm:w-28 shrink-0 truncate bg-dark-bg border border-dark-border/80 rounded-lg px-2 py-3 text-sm text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
 >
   @for (country of countries; track country.iso2) {
-  <option [value]="country.iso2">{{ country.flag }} {{ country.name }} (+{{ country.dialCode }})</option>
+  <!-- [selected] (propriedade JS) não reflete no atributo HTML serializado
+       (igual [checked] em checkbox) — sem o atributo real, o HTML estático
+       do prerender não marca nenhuma option, e o browser cai na primeira
+       da lista antes da hidratação rodar. [attr.selected] vira atributo de
+       verdade, então o SSR já nasce com o país certo marcado. -->
+  <option [value]="country.iso2" [attr.selected]="country.iso2 === value ? '' : null">{{ country.flag }} {{ country.name }} (+{{ country.dialCode }})</option>
   }
 </select>
