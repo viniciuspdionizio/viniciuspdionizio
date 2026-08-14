@@ -1,5 +1,5 @@
-import { Component, HostListener, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ScrollService } from '../../services/scroll.service';
 
 @Component({
@@ -8,8 +8,9 @@ import { ScrollService } from '../../services/scroll.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   private readonly scrollService = inject(ScrollService);
+  private readonly platformId = inject(PLATFORM_ID);
 
   isMenuOpen = false;
   isScrolled = false;
@@ -21,6 +22,12 @@ export class HeaderComponent {
     { label: 'Experiência', href: '#experience' },
     { label: 'Contato', href: '#contact' }
   ];
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isScrolled = window.scrollY > 20;
+    }
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
