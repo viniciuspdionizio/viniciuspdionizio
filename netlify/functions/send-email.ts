@@ -14,6 +14,7 @@ const resend = new Resend(apiKey);
 // ambiente local de desenvolvimento) pode chamar esta function.
 const ALLOWED_ORIGINS = [
   'https://viniciuspdionizio.netlify.app',
+  'https://viniciuspdionizio.github.io',
   'http://localhost:4200',
 ];
 
