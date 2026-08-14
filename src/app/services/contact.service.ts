@@ -20,6 +20,8 @@ export class ContactService {
     email: string;
     phone?: string;
     message: string;
+    /** Honeypot: campo invisível que deve permanecer vazio. Preenchido = bot. */
+    website?: string;
   }) {
     return this.http.post<ResendResponse>(
       `${this.apiUrl}/.netlify/functions/send-email`,

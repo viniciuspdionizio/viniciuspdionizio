@@ -27,6 +27,9 @@ export default class ContactComponent {
     email: ['', [Validators.required, Validators.email]],
     phone: ['', []],
     message: ['', [Validators.required, Validators.minLength(10)]],
+    // Honeypot anti-spam: campo invisível para humanos (ver contact.component.html).
+    // Se vier preenchido, o backend descarta o envio silenciosamente.
+    website: ['', []],
   });
 
   isSubmitting = signal(false);

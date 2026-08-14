@@ -82,6 +82,12 @@
           <h3 class="text-lg font-semibold font-outfit text-foreground mb-6">Envie uma mensagem</h3>
 
           <form [formGroup]="form" (ngSubmit)="send()" class="space-y-5">
+            <!-- Honeypot anti-spam: invisível para pessoas, bots costumam preencher todos os campos -->
+            <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+              <label for="website">Não preencha este campo</label>
+              <input type="text" id="website" formControlName="website" tabindex="-1" autocomplete="off">
+            </div>
+
             <!-- Nome -->
             <div>
               <label for="name" class="block text-xs font-semibold text-foreground/80 mb-2">Nome Completo</label>
