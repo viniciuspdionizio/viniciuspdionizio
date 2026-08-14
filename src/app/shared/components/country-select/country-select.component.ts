@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, LOCALE_ID, Output } from '@angular/core';
 import type { CountryCode } from 'libphonenumber-js/min';
-import { COUNTRIES } from '../../data/countries';
+import { COUNTRIES, Country } from '../../data/countries';
+import { localizedCountryName } from '../../utils/localized-country-name';
 
 /**
  * Seletor de país/DDI (FR1). `<select>` HTML nativo estilizado com Tailwind
@@ -18,10 +19,18 @@ export class CountrySelectComponent {
   @Input() value: CountryCode = 'BR';
   @Output() valueChange = new EventEmitter<CountryCode>();
 
-  readonly countries = COUNTRIES;
+  private readonly locale = inject(LOCALE_ID);
+
+  readonly countries: Country[] = this.localizeCountries();
 
   onChange(target: EventTarget | null): void {
     const select = target as HTMLSelectElement;
     this.valueChange.emit(select.value as CountryCode);
+  }
+
+  private localizeCountries(): Country[] {
+    return COUNTRIES
+      .map(country => ({ ...country, name: localizedCountryName(country, this.locale) }))
+      .sort((a, b) => a.name.localeCompare(b.name, this.locale));
   }
 }

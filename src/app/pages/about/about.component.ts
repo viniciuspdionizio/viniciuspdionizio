@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 })
 export default class AboutComponent {
   stats = [
-    { label: 'Foco de Atleta', detail: 'Foco, Disciplina e Resiliência' },
-    { label: 'Stack Principal', detail: 'Java, Spring Boot, Angular, TypeScript' },
-    { label: 'Resolução', detail: 'Calma sob pressão' }
+    { label: $localize`:@@about.stats.focus.label:Foco de Atleta`, detail: $localize`:@@about.stats.focus.detail:Foco, Disciplina e Resiliência` },
+    { label: $localize`:@@about.stats.stack.label:Stack Principal`, detail: 'Java, Spring Boot, Angular, TypeScript' },
+    { label: $localize`:@@about.stats.resolve.label:Resolução`, detail: $localize`:@@about.stats.resolve.detail:Calma sob pressão` }
   ];
 }

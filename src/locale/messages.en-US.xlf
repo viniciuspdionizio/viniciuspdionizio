@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="pt-BR" target-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="footer.role" datatype="html">
+        <source>Desenvolvedor de Software</source>
+        <target>Software Developer</target>
+      </trans-unit>
+      <trans-unit id="nav.home" datatype="html">
+        <source>Início</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="nav.about" datatype="html">
+        <source>Sobre Mim</source>
+        <target>About Me</target>
+      </trans-unit>
+      <trans-unit id="nav.skills" datatype="html">
+        <source>Habilidades</source>
+        <target>Skills</target>
+      </trans-unit>
+      <trans-unit id="nav.experience" datatype="html">
+        <source>Experiência</source>
+        <target>Experience</target>
+      </trans-unit>
+      <trans-unit id="footer.copyright" datatype="html">
+        <source>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> Vinicius Dionizio. Todos os direitos reservados.</source>
+        <target>© <x id="INTERPOLATION" equiv-text="{{ currentYear }}"/> Vinicius Dionizio. All rights reserved.</target>
+      </trans-unit>
+      <trans-unit id="footer.madeWith" datatype="html">
+        <source> Desenvolvido com <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;bi bi-heart-fill text-red-500 animate-pulse&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target> Made with <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;bi bi-heart-fill text-red-500 animate-pulse&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="footer.version" datatype="html">
+        <source>Versão: <x id="INTERPOLATION" equiv-text="{{ versionInfo[&apos;version&apos;] }}"/></source>
+        <target>Version: <x id="INTERPOLATION" equiv-text="{{ versionInfo[&apos;version&apos;] }}"/></target>
+      </trans-unit>
+      <trans-unit id="footer.publishedAt" datatype="html">
+        <source>Publicado em: <x id="INTERPOLATION" equiv-text="{{ versionInfo.buildDate | date:&apos;short&apos; }}"/></source>
+        <target>Published: <x id="INTERPOLATION" equiv-text="{{ versionInfo.buildDate | date:&apos;short&apos; }}"/></target>
+      </trans-unit>
+      <trans-unit id="header.openMenu" datatype="html">
+        <source>Abrir menu principal</source>
+        <target>Open main menu</target>
+      </trans-unit>
+      <trans-unit id="nav.contact" datatype="html">
+        <source>Contato</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="about.eyebrow" datatype="html">
+        <source>Minha Jornada</source>
+        <target>My Journey</target>
+      </trans-unit>
+      <trans-unit id="about.title" datatype="html">
+        <source>Sobre Mim</source>
+        <target>About Me</target>
+      </trans-unit>
+      <trans-unit id="about.headline" datatype="html">
+        <source> Unindo a mente analítica da tecnologia com a disciplina dos tatames. </source>
+        <target> Uniting the analytical mind of technology with the discipline of the mats. </target>
+      </trans-unit>
+      <trans-unit id="about.paragraph1" datatype="html">
+        <source> Olá! Sou o <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-foreground&quot;&gt;"/>Vinicius de Paiva Dionizio<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, desenvolvedor focado em criar experiências digitais modernas, fluidas e robustas. No mundo dos códigos e sistemas, busco constantemente as melhores práticas de arquitetura de software, novas linguagens e a evolução contínua das stacks que domino. </source>
+        <target> Hi! I'm <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-foreground&quot;&gt;"/>Vinicius de Paiva Dionizio<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, a developer focused on building modern, fluid and robust digital experiences. In the world of code and systems, I'm constantly pursuing software architecture best practices, new languages, and the continuous evolution of the stacks I work with. </target>
+      </trans-unit>
+      <trans-unit id="about.paragraph2" datatype="html">
+        <source> Fora das telas, sou conhecido no mundo dos combates como <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-foreground&quot;&gt;"/>Vinicius Dionizio<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Minha trajetória no kickboxing, competindo em diversos eventos importantes da modalidade, me ensinou valores que carrego diretamente para o meu dia a dia como engenheiro de software. </source>
+        <target> Away from the screens, I'm known in the fighting world as <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-foreground&quot;&gt;"/>Vinicius Dionizio<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. My journey in kickboxing, competing in several major events in the sport, taught me values I carry straight into my day-to-day as a software engineer. </target>
+      </trans-unit>
+      <trans-unit id="about.paragraph3" datatype="html">
+        <source> A <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-primary&quot;&gt;"/>disciplina<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> e o <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-primary&quot;&gt;"/>foco<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> extremos exigidos nos treinos intensivos se convertem na minha persistência para debugar cenários complexos e otimizar códigos até o seu melhor rendimento. Além disso, a habilidade de <x id="START_TAG_STRONG_1" ctype="x-strong_1" equiv-text="&lt;strong class=&quot;text-accent&quot;&gt;"/>manter a calma sob pressão<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> — vital durante um combate — me permite encarar desafios técnicos, prazos rigorosos e incidentes críticos com total serenidade, mantendo sempre o foco claro na solução. </source>
+        <target> The extreme <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-primary&quot;&gt;"/>discipline<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-primary&quot;&gt;"/>focus<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> demanded by intense training carry over into my persistence for debugging complex scenarios and optimizing code to its best performance. On top of that, the ability to <x id="START_TAG_STRONG_1" ctype="x-strong_1" equiv-text="&lt;strong class=&quot;text-accent&quot;&gt;"/>stay calm under pressure<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> — vital during a fight — lets me face technical challenges, tight deadlines and critical incidents with complete composure, always keeping a clear focus on the solution. </target>
+      </trans-unit>
+      <trans-unit id="about.paragraph4" datatype="html">
+        <source> Acredito que o desenvolvimento de alto nível não se trata apenas de escrever linhas de código, mas sim de entregar soluções eficientes e bem desenhadas, mantendo a perseverança diante dos desafios. Estou sempre aberto a novos aprendizados e parcerias para construir o futuro da tecnologia. </source>
+        <target> I believe high-level development isn't just about writing lines of code, but about delivering efficient, well-designed solutions while staying persistent in the face of challenges. I'm always open to new learning and partnerships to help build the future of technology. </target>
+      </trans-unit>
+      <trans-unit id="about.stats.focus.label" datatype="html">
+        <source>Foco de Atleta</source>
+        <target>Athlete's Focus</target>
+      </trans-unit>
+      <trans-unit id="about.stats.focus.detail" datatype="html">
+        <source>Foco, Disciplina e Resiliência</source>
+        <target>Focus, Discipline and Resilience</target>
+      </trans-unit>
+      <trans-unit id="about.stats.stack.label" datatype="html">
+        <source>Stack Principal</source>
+        <target>Main Stack</target>
+      </trans-unit>
+      <trans-unit id="about.stats.resolve.label" datatype="html">
+        <source>Resolução</source>
+        <target>Resolve</target>
+      </trans-unit>
+      <trans-unit id="about.stats.resolve.detail" datatype="html">
+        <source>Calma sob pressão</source>
+        <target>Calm under pressure</target>
+      </trans-unit>
+      <trans-unit id="contact.eyebrow" datatype="html">
+        <source>Contato</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="contact.title" datatype="html">
+        <source>Fale Comigo</source>
+        <target>Get in Touch</target>
+      </trans-unit>
+      <trans-unit id="contact.intro.title" datatype="html">
+        <source>Vamos construir algo juntos?</source>
+        <target>Let's build something together?</target>
+      </trans-unit>
+      <trans-unit id="contact.intro.body" datatype="html">
+        <source> Seja para conversar sobre uma oportunidade de trabalho, tirar dúvidas sobre projetos, compartilhar ideias ou apenas trocar um papo sobre kickboxing e tech, sinta-se à vontade para entrar em contato! </source>
+        <target> Whether it's to talk about a job opportunity, ask questions about projects, share ideas, or just chat about kickboxing and tech, feel free to reach out! </target>
+      </trans-unit>
+      <trans-unit id="contact.email.label" datatype="html">
+        <source>E-mail</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="contact.location.label" datatype="html">
+        <source>Localização</source>
+        <target>Location</target>
+      </trans-unit>
+      <trans-unit id="contact.location.value" datatype="html">
+        <source>Assis, São Paulo, Brasil</source>
+        <target>Assis, São Paulo, Brazil</target>
+      </trans-unit>
+      <trans-unit id="contact.connect" datatype="html">
+        <source>Conecte-se comigo </source>
+        <target>Connect with me </target>
+      </trans-unit>
+      <trans-unit id="contact.form.title" datatype="html">
+        <source>Envie uma mensagem</source>
+        <target>Send a message</target>
+      </trans-unit>
+      <trans-unit id="contact.form.honeypot" datatype="html">
+        <source>Não preencha este campo</source>
+        <target>Do not fill in this field</target>
+      </trans-unit>
+      <trans-unit id="contact.form.name.label" datatype="html">
+        <source>Nome Completo</source>
+        <target>Full Name</target>
+      </trans-unit>
+      <trans-unit id="contact.form.name.placeholder" datatype="html">
+        <source>Ex: João Silva</source>
+        <target>e.g. John Smith</target>
+      </trans-unit>
+      <trans-unit id="contact.form.name.error.required" datatype="html">
+        <source>O nome é obrigatório.</source>
+        <target>Name is required.</target>
+      </trans-unit>
+      <trans-unit id="contact.form.name.error.minlength" datatype="html">
+        <source>Deve conter pelo menos 3 caracteres.</source>
+        <target>Must contain at least 3 characters.</target>
+      </trans-unit>
+      <trans-unit id="contact.form.email.label" datatype="html">
+        <source>E-mail</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="contact.form.email.placeholder" datatype="html">
+        <source>seuemail@exemplo.com</source>
+        <target>youremail@example.com</target>
+      </trans-unit>
+      <trans-unit id="contact.form.email.error.required" datatype="html">
+        <source>O e-mail é obrigatório.</source>
+        <target>Email is required.</target>
+      </trans-unit>
+      <trans-unit id="contact.form.email.error.invalid" datatype="html">
+        <source>Digite um e-mail válido.</source>
+        <target>Enter a valid email.</target>
+      </trans-unit>
+      <trans-unit id="contact.form.phone.label" datatype="html">
+        <source>Telefone (Opcional)</source>
+        <target>Phone (Optional)</target>
+      </trans-unit>
+      <trans-unit id="contact.form.phone.error.invalid" datatype="html">
+        <source>Digite um telefone válido para o país selecionado.</source>
+        <target>Enter a valid phone number for the selected country.</target>
+      </trans-unit>
+      <trans-unit id="contact.form.message.label" datatype="html">
+        <source>Sua Mensagem</source>
+        <target>Your Message</target>
+      </trans-unit>
+      <trans-unit id="contact.form.message.placeholder" datatype="html">
+        <source>Como posso ajudar você?</source>
+        <target>How can I help you?</target>
+      </trans-unit>
+      <trans-unit id="contact.form.message.error.required" datatype="html">
+        <source>A mensagem é obrigatória.</source>
+        <target>Message is required.</target>
+      </trans-unit>
+      <trans-unit id="contact.form.message.error.minlength" datatype="html">
+        <source>A mensagem deve ter pelo menos 10 caracteres.</source>
+        <target>Message must be at least 10 characters.</target>
+      </trans-unit>
+      <trans-unit id="contact.form.submitting" datatype="html">
+        <source>Enviando...</source>
+        <target>Sending...</target>
+      </trans-unit>
+      <trans-unit id="contact.form.submit" datatype="html">
+        <source>Enviar Mensagem</source>
+        <target>Send Message</target>
+      </trans-unit>
+      <trans-unit id="contact.success.title" datatype="html">
+        <source>Mensagem enviada com sucesso!</source>
+        <target>Message sent successfully!</target>
+      </trans-unit>
+      <trans-unit id="contact.success.body" datatype="html">
+        <source>Agradeço seu contato. Responderei o mais rápido possível!</source>
+        <target>Thanks for reaching out. I'll reply as soon as possible!</target>
+      </trans-unit>
+      <trans-unit id="contact.toast.success" datatype="html">
+        <source>Email enviado com sucesso</source>
+        <target>Email sent successfully</target>
+      </trans-unit>
+      <trans-unit id="contact.toast.error.generic" datatype="html">
+        <source>Erro interno do servidor</source>
+        <target>Internal server error</target>
+      </trans-unit>
+      <trans-unit id="contact.toast.error.title" datatype="html">
+        <source>Erro ao enviar e-mail</source>
+        <target>Error sending email</target>
+      </trans-unit>
+      <trans-unit id="contact.mailto.subject" datatype="html">
+        <source>Contato</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="contact.mailto.name" datatype="html">
+        <source>Nome</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="contact.mailto.phone" datatype="html">
+        <source>Telefone</source>
+        <target>Phone</target>
+      </trans-unit>
+      <trans-unit id="contact.mailto.message" datatype="html">
+        <source>Mensagem</source>
+        <target>Message</target>
+      </trans-unit>
+      <trans-unit id="home.availableForProjects" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;w-2 h-2 rounded-full bg-primary animate-ping&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Disponível para projetos </source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;w-2 h-2 rounded-full bg-primary animate-ping&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Available for projects </target>
+      </trans-unit>
+      <trans-unit id="home.role" datatype="html">
+        <source> Desenvolvedor <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span
+          class=&quot;bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent&quot;&gt;"/>Full-Stack<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target> <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span
+          class=&quot;bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent&quot;&gt;"/>Full-Stack<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Developer</target>
+      </trans-unit>
+      <trans-unit id="home.tagline" datatype="html">
+        <source> Foco em interfaces web modernas, experiência do usuário, qualidade de código e desenvolvimento de software de alto desempenho. </source>
+        <target> Focused on modern web interfaces, user experience, code quality, and high-performance software development. </target>
+      </trans-unit>
+      <trans-unit id="home.discover" datatype="html">
+        <source>DESCUBRA</source>
+        <target>DISCOVER</target>
+      </trans-unit>
+      <trans-unit id="home.skills.eyebrow" datatype="html">
+        <source>Stack Tecnológica</source>
+        <target>Tech Stack</target>
+      </trans-unit>
+      <trans-unit id="home.skills.title" datatype="html">
+        <source>Minhas Habilidades</source>
+        <target>My Skills</target>
+      </trans-unit>
+      <trans-unit id="home.experience.eyebrow" datatype="html">
+        <source>Histórico</source>
+        <target>Background</target>
+      </trans-unit>
+      <trans-unit id="home.experience.title" datatype="html">
+        <source>Experiência &amp; Formação</source>
+        <target>Experience &amp; Education</target>
+      </trans-unit>
+      <trans-unit id="skills.level.intermediate" datatype="html">
+        <source>Intermediário</source>
+        <target>Intermediate</target>
+      </trans-unit>
+      <trans-unit id="skills.level.basic" datatype="html">
+        <source>Básico</source>
+        <target>Basic</target>
+      </trans-unit>
+      <trans-unit id="skills.category.frontend" datatype="html">
+        <source>Front-End</source>
+        <target>Front-End</target>
+      </trans-unit>
+      <trans-unit id="skills.category.backend" datatype="html">
+        <source>Back-End &amp; APIs</source>
+        <target>Back-End &amp; APIs</target>
+      </trans-unit>
+      <trans-unit id="skills.category.tools" datatype="html">
+        <source>Ferramentas &amp; Métodos</source>
+        <target>Tools &amp; Methods</target>
+      </trans-unit>
+      <trans-unit id="skills.agile" datatype="html">
+        <source>Metodologias Ágeis</source>
+        <target>Agile Methodologies</target>
+      </trans-unit>
+      <trans-unit id="timeline.role.developer" datatype="html">
+        <source>Desenvolvedor</source>
+        <target>Developer</target>
+      </trans-unit>
+      <trans-unit id="timeline.peti9.period" datatype="html">
+        <source>2024 - Presente</source>
+        <target>2024 - Present</target>
+      </trans-unit>
+      <trans-unit id="timeline.peti9.description" datatype="html">
+        <source>Desenvolvimento e evolução do sistema PETI9, uma plataforma de gestão para o segmento pet. Atuação full-stack com Angular no frontend e Spring Boot no backend, contribuindo na criação de novas funcionalidades, manutenção evolutiva e corretiva, integrações entre serviços e sustentação da aplicação em produção. Foco em desempenho, segurança e regras de negócio.</source>
+        <target>Development and evolution of the PETI9 system, a management platform for the pet industry. Full-stack work with Angular on the frontend and Spring Boot on the backend, contributing new features, evolutionary and corrective maintenance, integrations between services, and production support. Focus on performance, security, and business rules.</target>
+      </trans-unit>
+      <trans-unit id="timeline.kickboxing.role" datatype="html">
+        <source>Atleta Competidor de Kickboxing</source>
+        <target>Competitive Kickboxing Athlete</target>
+      </trans-unit>
+      <trans-unit id="timeline.kickboxing.period" datatype="html">
+        <source>2014 - Presente</source>
+        <target>2014 - Present</target>
+      </trans-unit>
+      <trans-unit id="timeline.kickboxing.description" datatype="html">
+        <source>Atuação em campeonatos de kickboxing com desenvolvimento contínuo de disciplina, controle emocional sob alta pressão, resiliência física e mental, e foco em performance competitiva.</source>
+        <target>Competing in kickboxing championships with ongoing development of discipline, emotional control under high pressure, physical and mental resilience, and focus on competitive performance.</target>
+      </trans-unit>
+      <trans-unit id="timeline.omega.description" datatype="html">
+        <source>Desenvolvimento de sistemas e integrações voltadas ao setor fiscal, com foco na comunicação entre software proprietário e a SEFAZ. Atuação também no ERP da empresa, participando da manutenção evolutiva e corretiva de sistemas legados, implementação de integrações via SOAP e uso de certificados digitais, garantindo conformidade e confiabilidade das operações.</source>
+        <target>Development of systems and integrations for the tax sector, focused on communication between proprietary software and SEFAZ (Brazil's state tax authority). Also worked on the company's ERP, handling evolutionary and corrective maintenance of legacy systems, implementing SOAP-based integrations, and using digital certificates to ensure compliant and reliable operations.</target>
+      </trans-unit>
+      <trans-unit id="timeline.fema.role" datatype="html">
+        <source>Bacharel em Ciência da Computação</source>
+        <target>Bachelor's in Computer Science</target>
+      </trans-unit>
+      <trans-unit id="timeline.fema.description" datatype="html">
+        <source>Formação em Ciência da Computação com base em arquitetura de sistemas, algoritmos, banco de dados, engenharia de software e desenvolvimento de aplicações. Início da graduação em 2009 e conclusão em 2022.</source>
+        <target>Computer Science degree covering systems architecture, algorithms, databases, software engineering, and application development. Started in 2009 and completed in 2022.</target>
+      </trans-unit>
+      <trans-unit id="countrySelect.label" datatype="html">
+        <source>País</source>
+        <target>Country</target>
+      </trans-unit>
+      <trans-unit id="header.switchToEnglish" datatype="html">
+        <source>Switch to English</source>
+        <target>Switch to English</target>
+      </trans-unit>
+      <trans-unit id="header.switchToPortuguese" datatype="html">
+        <source>Mudar para português</source>
+        <target>Switch to Portuguese</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
