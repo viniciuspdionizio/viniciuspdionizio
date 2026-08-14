@@ -68,6 +68,18 @@ describe('ContactComponent', () => {
       expect(component.form.controls.phone.valid).toBeTrue();
     });
 
+    it('should validate phone format when filled in', () => {
+      const control = component.form.controls.phone;
+      control.setValue('abc123');
+      expect(control.hasError('pattern')).toBeTrue();
+      control.setValue('1234');
+      expect(control.hasError('pattern')).toBeTrue();
+      control.setValue('(18) 99999-9999');
+      expect(control.valid).toBeTrue();
+      control.setValue('+55 18 999999999');
+      expect(control.valid).toBeTrue();
+    });
+
     it('should require message with at least 10 characters', () => {
       const control = component.form.controls.message;
       control.setValue('curta');
