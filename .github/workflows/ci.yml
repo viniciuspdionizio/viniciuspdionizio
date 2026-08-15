@@ -30,6 +30,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Generate version info
+        run: node scripts/generate-version.js
+
       - name: Test
         run: npx ng test --watch=false --browsers=ChromeHeadless
 
