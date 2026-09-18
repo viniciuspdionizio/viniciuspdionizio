@@ -38,6 +38,10 @@
         <source>Publicado em: <x id="INTERPOLATION" equiv-text="{{ versionInfo.buildDate | date:&apos;short&apos; }}"/></source>
         <target>Published: <x id="INTERPOLATION" equiv-text="{{ versionInfo.buildDate | date:&apos;short&apos; }}"/></target>
       </trans-unit>
+      <trans-unit id="footer.privacy" datatype="html">
+        <source>Este site coleta dados de navegação anônimos (página visitada, localização aproximada e origem do acesso) para fins estatísticos.</source>
+        <target>This site collects anonymous browsing data (page visited, approximate location and referral source) for statistical purposes.</target>
+      </trans-unit>
       <trans-unit id="header.openMenu" datatype="html">
         <source>Abrir menu principal</source>
         <target>Open main menu</target>
