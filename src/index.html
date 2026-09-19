@@ -44,6 +44,14 @@
         'FILL' 1;
     }
   </style>
+  <!-- Umami Analytics: dashboard de visitas em cloud.umami.is (complementa o
+       registro próprio em netlify/functions/track-visit.ts). data-domains
+       restringe o envio de eventos a esses hostnames — sem isso, localhost e
+       deploy previews também seriam contados (não existe um "excluir
+       domínio" no dashboard do Umami, é só via este atributo mesmo). -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="ba0591f1-1b2e-48b5-96eb-8dd9e4ca4717"
+    data-domains="viniciuspdionizio.netlify.app,viniciuspdionizio.github.io"></script>
+
   <script>
 
 

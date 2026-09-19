@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, afterNextRender, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgxSonnerToaster } from 'ngx-sonner';
 import { SeoService } from './services/seo.service';
+import { TrackingService } from './services/tracking.service';
 
 @Component({
     selector: 'app-root',
@@ -15,5 +16,10 @@ export class AppComponent {
     // Roda também durante o prerender (SSR), então o HTML estático de cada
     // idioma já sai com <title>/meta/hreflang corretos (ver SeoService).
     inject(SeoService).apply();
+
+    // afterNextRender só executa no browser (nunca durante o SSR/prerender),
+    // então a visita só é registrada quando alguém realmente abre a página.
+    const tracking = inject(TrackingService);
+    afterNextRender(() => tracking.trackVisit());
   }
 }
