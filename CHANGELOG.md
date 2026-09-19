@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/viniciuspdionizio/viniciuspdionizio/compare/viniciuspdionizio-v0.3.0...viniciuspdionizio-v0.4.0) (2026-09-19)
+
+
+### Features
+
+* add tracking viewer ([#15](https://github.com/viniciuspdionizio/viniciuspdionizio/issues/15)) ([bde135b](https://github.com/viniciuspdionizio/viniciuspdionizio/commit/bde135beb8b4e5e1be4c0fc105a4d0826389b45f))
+
 ## [0.3.0](https://github.com/viniciuspdionizio/viniciuspdionizio/compare/viniciuspdionizio-v0.2.2...viniciuspdionizio-v0.3.0) (2026-08-18)
 
 
